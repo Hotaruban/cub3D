@@ -2,9 +2,6 @@
 #                                                                              #
 #                                  TO DO LIST                                  #
 #                                                                              #
-#    Created: 2023/12/13 17:18:08 by jhurpy                                    #
-#    Updated: 2023/12/13 17:18:32 by jhurpy                                    #
-#                                                                              #
 # **************************************************************************** #
 
 Yu Chen:
@@ -12,12 +9,18 @@ Yu Chen:
 
 
 Jeremy Hurpy:
-	- [ ] Check the number of arguments
-	- [ ] Check the file extension
-	- [ ] Check the access to the file map
+	- [x] Check the number of arguments
+		- [ ] Test the checker
+	- [x] Check the file extension
+		- [ ] Test the checker
+	- [x] Check the access to the file map
+		- [ ] Test the checker
 	- [ ] Check the file content
-	- [ ] Check the map
+		- [ ] Test the checker
 	- [ ] Check the access to the textures
+		- [ ] Test the checker
+	- [ ] Check the map
+		- [ ] Test the checker
 
 Global:
 	- [ ] Norme
