@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/13 18:04:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/14 01:00:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
+# include <errno.h>
+# include <stdbool.h>
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -50,7 +52,8 @@ typedef struct s_texture
 /*                                                                            */
 /* ************************************************************************** */
 
-
+void	msg_error_parsing(char *msg);
+bool	check_error_file(int ac, char *path_map);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -58,7 +61,20 @@ typedef struct s_texture
 /*                                                                            */
 /* ************************************************************************** */
 
+void	init_data(t_data *data, char *path_map);
+bool	init_textures(int fd, t_texture *texture);
+// bool	init_map(wait for determination for the map structure);
+void	parse_space(char *line, int *index);
+char	*parse_string(char *line, int *index);
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                        UTILS FUNCTIONS                                     */
+/*                                                                            */
+/* ************************************************************************** */
 
+void	free_data(t_data *data);
+void	free_texture(t_texture *texture);
+void	free_2d_array(char **array);
 
 #endif

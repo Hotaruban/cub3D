@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/13 17:00:58 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/14 01:23:06 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ NAME = cub3D
 NAME_BONUS = # name of the bonus project #
 CC = @gcc
 CFLAGS = -Wall -Werror -Wextra -g3
+MFLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 AR = ar rc
 
@@ -39,11 +40,18 @@ AR = ar rc
 
 SRCDIR = srcs
 OBJDIR = objs
-LIBS = ./libft/libft.a ./mlx/libmlx.a
-INCDIR = # list of include directories #
-EXTERN_LIBS = ./libft ./mlx
+LIBFT = ./libft/libft.a
+MLX = ./mlx/libmlx.a
+INCDIR = ./includes
+EXTERN_LIBS = $(LIBFT) $(MLX)
+INCS = -I$(INCDIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
-srcs = ./src/*/*.c
+srcs =	src/error_managment/check_error_file.c \
+		src/free_functions/free_all.c \
+		src/message/msg_error_parsing.c \
+		src/parsing_map/init_data.c \
+		src/parsing_map/init_textures.c \
+		src/parsing_map/utils_parser.c \
 
 OBJS = $(addprefix $(OBJDIR)/, $(srcs:.c=.o))
 
@@ -53,8 +61,11 @@ OBJS = $(addprefix $(OBJDIR)/, $(srcs:.c=.o))
 
 all: $(EXTERN_LIBS) $(NAME)
 
-$(LIBS):
-	@$(MAKE) -C $(EXTERN_LIBS)
+$(EXTERN_LIBS):
+	@$(MAKE) -C $(LIBFT)
+	@echo "$(BGREEN)$(LIBFT) created$(RESET)"
+	@$(MAKE) -C $(MLX)
+	@echo "$(BGREEN)$(MLX) created$(RESET)"
 
 $(NAME): $(OBJS) $(LIBS)
 	@$(AR) $(NAME) $(OBJS)
@@ -62,12 +73,17 @@ $(NAME): $(OBJS) $(LIBS)
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJDIR_BONUS)
-	@make clean -C $(LIBFT_DIR)
+	@make clean -C $(LIBFT)
+	@echo "$(BRED)$(LIBFT) deleted$(RESET)"
+	@make clean -C $(MLX)
+	@echo "$(BRED)$(MLX) deleted$(RESET)"
 	@echo "$(BRED)$(OBJDIR) deleted$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME) $(NAME_BONUS)
+	@$(RM) $(NAME)
 	@$(RM) $(LIBS)
+	@make fclean -C $(LIBFT)
+	@make fclean -C $(MLX)
 	@echo "$(BRED)$(LIBS) deleted$(RESET)"
 	@echo "$(BRED)$(NAME) deleted$(RESET)"
 
