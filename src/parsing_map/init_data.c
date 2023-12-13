@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:37:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 00:59:26 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/14 02:35:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	init_data(t_data *data, char *path_map)
 {
 	int	fd;
 
+	data = ft_calloc(1, sizeof(t_data));
+	if (!data)
+		msg_error_parsing("Fail in data allocation\n");
 	fd = open(path_map, O_RDONLY);
 	if (init_textures(fd, data->texture) == false)
 	{

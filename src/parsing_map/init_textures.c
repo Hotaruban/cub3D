@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:55:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 01:13:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/14 02:16:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	check_texture_complete(t_texture *texture)
 {
 	if (texture->north == NULL || texture->south == NULL
 		|| texture->west == NULL || texture->east == NULL
-		|| texture->floor == NULL || texture->ceiling == NULL)
+		|| texture->floor == 0 || texture->ceiling == 0)
 		return (false);
 	return (true);
 }

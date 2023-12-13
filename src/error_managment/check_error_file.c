@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:57:09 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 00:57:12 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/14 02:14:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	check_extention(char *path_map)
 	len = ft_strlen(path_map);
 	if (len < 5)
 		return (false);
-	if (ft_strcmp(path_map + len - 4, ".cub"))
+	if (ft_strncmp(path_map + len - 4, ".cub", 4))
 		return (false);
 	return (true);
 }

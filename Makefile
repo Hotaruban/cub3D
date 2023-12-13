@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/14 01:23:06 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/14 03:15:10 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ RESET = \033[0m
 #									PROJECT									   #
 # **************************************************************************** #
 
-NAME = cub3D
-NAME_BONUS = # name of the bonus project #
 CC = @gcc
 CFLAGS = -Wall -Werror -Wextra -g3
 MFLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
+#SFLAGS = -g -fsanitize=address,undefined,leak
+
 RM = rm -rf
 AR = ar rc
 
@@ -38,54 +38,51 @@ AR = ar rc
 #									DIRECTORIES								   #
 # **************************************************************************** #
 
-SRCDIR = srcs
-OBJDIR = objs
+NAME = cub3D
 LIBFT = ./libft/libft.a
 MLX = ./mlx/libmlx.a
-INCDIR = ./includes
-EXTERN_LIBS = $(LIBFT) $(MLX)
-INCS = -I$(INCDIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
+SRCDIR = src
+SRC_FILES =	error_managment/check_error_file.c \
+			free_functions/free_all.c \
+			message/msg_error_parsing.c \
+			parsing_map/init_data.c \
+			parsing_map/init_textures.c \
+			parsing_map/utils_parser.c \
 
-srcs =	src/error_managment/check_error_file.c \
-		src/free_functions/free_all.c \
-		src/message/msg_error_parsing.c \
-		src/parsing_map/init_data.c \
-		src/parsing_map/init_textures.c \
-		src/parsing_map/utils_parser.c \
+OBJDIR = obj
+INC = includes
+LIBFT_DIR = ./libft
+MLX_DIR = ./mlx
+INCS = -I$(LIBFT_DIR) -I$(MLX_DIR) -I$(INC)
 
-OBJS = $(addprefix $(OBJDIR)/, $(srcs:.c=.o))
+SOURCES = $(addprefix $(SRCDIR)/, $(SRC_FILES))
+OBJS = $(SOURCES:$(SRCDIR)%.c = $(OBJDIR)/%.o)
 
 # **************************************************************************** #
 #									MAKE RULES								   #
 # **************************************************************************** #
 
-all: $(EXTERN_LIBS) $(NAME)
+all: $(LIBFT_DIR) $(MLX_DIR) $(NAME)
 
-$(EXTERN_LIBS):
-	@$(MAKE) -C $(LIBFT)
-	@echo "$(BGREEN)$(LIBFT) created$(RESET)"
-	@$(MAKE) -C $(MLX)
-	@echo "$(BGREEN)$(MLX) created$(RESET)"
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) $(LIBS)
-	@$(AR) $(NAME) $(OBJS)
+$(MLX):
+	@$(MAKE) -C $(MLX_DIR)
+
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
+	@$(CC) $(CFLAGS) $(OBJS) $(MFLAGS) $(INCS) -o $(NAME)
 	@echo "$(BGREEN)$(NAME) created$(RESET)"
 
 clean:
-	@$(RM) $(OBJDIR) $(OBJDIR_BONUS)
-	@make clean -C $(LIBFT)
-	@echo "$(BRED)$(LIBFT) deleted$(RESET)"
-	@make clean -C $(MLX)
-	@echo "$(BRED)$(MLX) deleted$(RESET)"
-	@echo "$(BRED)$(OBJDIR) deleted$(RESET)"
+	@$(RM) $(OBJDIR)
+	@make clean -C $(LIBFT_DIR)
+	@make clean -C $(MLX_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) $(LIBS)
-	@make fclean -C $(LIBFT)
-	@make fclean -C $(MLX)
-	@echo "$(BRED)$(LIBS) deleted$(RESET)"
-	@echo "$(BRED)$(NAME) deleted$(RESET)"
+	@make fclean -C $(LIBFT_DIR)
+	@echo "$(BRED)Fclean done$(RESET)"
 
 re: fclean all
 

@@ -6,15 +6,12 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 01:00:19 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/14 03:03:30 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_CUB3D_H
 # define LIB_CUB3D_H
-
-# include "../libft/libft.h"
-# include "../minilibx/mlx.h"
 
 # include <unistd.h>
 # include <stdio.h>
@@ -23,6 +20,8 @@
 # include <math.h>
 # include <errno.h>
 # include <stdbool.h>
+# include "../libft/includes/libft.h"
+# include "../mlx/mlx.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -30,21 +29,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_data
-{
-	t_texture	*texture;
-	// data of the map to define the return of the parsing
-}			t_data;
-
 typedef struct s_texture
 {
 	char		*north;
 	char		*south;
 	char		*west;
 	char		*east;
-	int			floor;
-	int			ceiling;
-}			t_texture;
+	char		*floor;
+	char		*ceiling;
+	int			floor_color;
+	int			ceiling_color;
+}	t_texture;
+
+typedef struct s_data
+{
+	t_texture	*texture;
+}	t_data;
 
 /* ************************************************************************** */
 /*                                                                            */
