@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:37:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 17:02:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:26:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	init_data(t_data *data, char *path_map)
 	if (init_textures(fd, data) == false)
 	{
 		close(fd);
-		free_data(data);
-		msg_error("Error in textures data.\n");
+		msg_error_exit(data, "Error in textures data.\n");
 	}
 	/*
 	Here will be the part for reading the second part of the file for

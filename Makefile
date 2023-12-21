@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/21 16:28:52 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/21 17:27:52 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ SRC_FILES =	main.c \
 			error_managment/check_error_file.c \
 			memory_managment/allocate_memory.c \
 			memory_managment/free_all.c \
-			message/msg_error.c \
+			message/message_error.c \
 			parsing_map/init_data.c \
 			parsing_map/init_textures.c \
 			parsing_map/utils_parser.c

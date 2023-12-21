@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:58:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 17:01:40 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:26:03 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,9 @@ t_data	*allocate_memory(t_data *data)
 {
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
-	{
-		msg_error("Memory allocation failed!\n");
-		return (NULL);
-	}
+		msg_error_exit(NULL, "Memory allocation failed!\n");
 	data->texture = allocate_memory_texture(data->texture);
 	if (!data->texture)
-	{
-		free(data);
-		msg_error("Memory allocation failed!\n");
-		return (NULL);
-	}
+		msg_error_exit(data, "Memory allocation failed!\n");
 	return (data);
 }
