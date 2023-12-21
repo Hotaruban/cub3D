@@ -1,12 +1,12 @@
 # <p align = "center"> Project cub3D </p>
 
 <p align = "center">
-<a href = ><img cub3D = "cub3D" src = "cub3dn.png"></a>
+<a href = "https://github.com/Hotaruban" ><img cub3D = "cub3D" src = "cub3dn.png"></a>
 </p>
 
 Team members:
-- Yu Chen (intra: ychen2)
-- Jeremy Hurpy (intra: jhurpy)
+- <a href = "https://github.com/PoissonC">Yu</a> (intra: <a href = "">ychen2</a>)
+- <a href = "https://github.com/Hotaruban">Jeremy</a> (intra: <a href = "">jhurpy</a>)
 
 Goals
 
