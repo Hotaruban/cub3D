@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/14 03:27:01 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/21 16:18:50 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,21 +32,24 @@ AR = ar rc
 
 # Target library name and directories
 NAME = cub3D
+
+INC_DIR = includes
 LIBFT = libft/libft.a
+LIBFT_DIR = libft
 MLX = mlx/libmlx.a
+MLX_DIR = mlx
+
 SRC_DIR =src
 SRC_FILES =	main.c \
 			error_managment/check_error_file.c \
-			free_functions/free_all.c \
+			memory_managment/allocate_memory.c \
+			memory_managment/free_all.c \
 			message/msg_error_parsing.c \
 			parsing_map/init_data.c \
 			parsing_map/init_textures.c \
 			parsing_map/utils_parser.c
 
 OBJ_DIR = obj
-INC_DIR = includes
-MLX_DIR = mlx
-LIBFT_DIR = libft
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
 # Sources, objects and dependencies
@@ -54,7 +57,8 @@ SOURCES = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJECTS = $(SOURCES:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
 
 # Default target, build the library
-all: $(LIBFT_DIR) $(MLX_DIR) $(NAME)
+all: $(LIBFT) $(MLX) $(NAME)
+	@echo "$(BGREEN)$(NAME) created$(RESET)"
 
 # Rule to build each personal library
 $(LIBFT):
@@ -77,12 +81,13 @@ clean:
 	$(RM) $(OBJ_DIR)
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(MLX_DIR)
+	@echo "$(BGREEN)Cleaned!$(RESET)"
 
 # Clean object files and target library
 fclean: clean
-	$(RM) $(NAME)
-	$(RM) $(LIBFT_DIR)/libft.a
-	$(RM) $(MLX_DIR)/libmlx.a
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFT_DIR)/libft.a
+	@$(RM) $(MLX_DIR)/libmlx.a
 	@make fclean -C $(LIBFT_DIR)
 
 # Clean and rebuild the target library

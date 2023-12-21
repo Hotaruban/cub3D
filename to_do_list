@@ -10,11 +10,11 @@ Yu Chen:
 
 Jeremy Hurpy:
 	- [x] Check the number of arguments
-		- [ ] Test the checker
+		- [x] Test the checker
 	- [x] Check the file extension
-		- [ ] Test the checker
+		- [x] Test the checker
 	- [x] Check the access to the file map
-		- [ ] Test the checker
+		- [x] Test the checker
 	- [ ] Check the file content
 		- [ ] Test the checker
 	- [ ] Check the access to the textures
