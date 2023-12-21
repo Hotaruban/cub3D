@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:37:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:15:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:25:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	init_data(t_data *data, char *path_map)
 	int		fd;
 
 	fd = open(path_map, O_RDONLY);
-	if (init_textures(fd, data->texture) == false)
+	if (init_textures(fd, data) == false)
 	{
 		close(fd);
-		free_texture(data->texture);
+		free_data(data);
 		msg_error_parsing("Error in textures data.\n");
 	}
 	/*

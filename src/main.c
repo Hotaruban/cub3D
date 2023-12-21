@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:14:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:26:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int ac, char **av)
 	if (!check_error_file(ac, av[1]))
 		return (1);
 	data = allocate_memory(data);
+	if (!data)
+		return (1);
 	init_data(data, av[1]);
 
 	/*

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:57:09 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 05:16:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:29:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ static bool	check_access_file(char *path_map)
 bool	check_error_file(int ac, char *path_map)
 {
 	if (ac != 2)
-		msg_error_parsing("Wrong number of arguments!\n");
+		msg_error("Wrong number of arguments!\n");
 	if (!check_extention(path_map))
-		msg_error_parsing("Wrong map file extention!\n");
+		msg_error("Wrong map file extention!\n");
 	if (!check_access_file(path_map))
-		msg_error_parsing("Map file doesn't exist or not accessible!\n");
+		msg_error("Map file doesn't exist or not accessible!\n");
 	return (true);
 }
