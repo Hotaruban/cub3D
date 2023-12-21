@@ -1,7 +1,7 @@
 # <p align = "center"> Project cub3D </p>
 
 <p align = "center">
-<a href = ><img cub3D = "cub3D" src = "../../github_profil/42_badges/badges/cub3dn.png"></a>
+<a href = ><img cub3D = "cub3D" src = "cub3dn.png"></a>
 </p>
 
 Team members:
