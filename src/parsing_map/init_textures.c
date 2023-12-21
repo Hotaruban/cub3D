@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:55:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 17:46:12 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 18:00:09 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ static bool	init_variable(t_data *data, char *line)
 	}
 	if (check_valide_variables(line_split) == false)
 		return (false);
-	if (ft_strncmp(line_split[0], "NO", 3) == 0)
+	if (ft_strncmp(line_split[0], "NO", 3) == 0 && data->texture->north == NULL)
 		data->texture->north = ft_strdup(line_split[1]);
-	else if (ft_strncmp(line_split[0], "SO", 3) == 0)
+	else if (ft_strncmp(line_split[0], "SO", 3) == 0 && data->texture->south == NULL)
 		data->texture->south = ft_strdup(line_split[1]);
-	else if (ft_strncmp(line_split[0], "WE", 3) == 0)
+	else if (ft_strncmp(line_split[0], "WE", 3) == 0 && data->texture->west == NULL)
 		data->texture->west = ft_strdup(line_split[1]);
-	else if (ft_strncmp(line_split[0], "EA", 3) == 0)
+	else if (ft_strncmp(line_split[0], "EA", 3) == 0 && data->texture->east == NULL)
 		data->texture->east = ft_strdup(line_split[1]);
-	else if (ft_strncmp(line_split[0], "F", 2) == 0)
+	else if (ft_strncmp(line_split[0], "F", 2) == 0 && data->texture->floor == -1)
 		data->texture->floor = /*function to turn floor color string in number*/0;
-	else if (ft_strncmp(line_split[0], "C", 2) == 0)
+	else if (ft_strncmp(line_split[0], "C", 2) == 0 && data->texture->ceiling == -1)
 		data->texture->ceiling = /*function to turn ceiling color string in number*/0;
 	else if (ft_strncmp(line_split[0], "\n", 2) != 0)
 		return (false);
