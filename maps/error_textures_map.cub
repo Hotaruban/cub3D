@@ -1,0 +1,16 @@
+N ../textures/test/matrix.xpm
+
+SO ../textures/test/matrix.xpm
+WE ../textures/test/matrix.xpm
+EA ../textures/test/matrix.xpm
+
+F 0,0,0
+C 0,0,0
+
+1111111
+1000001
+1001001
+1011101
+1001001
+10000N1
+1111111

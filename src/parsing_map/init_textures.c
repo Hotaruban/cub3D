@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:55:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 17:29:21 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:46:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ static bool	init_variable(t_data *data, char *line)
 
 	line_split = ft_split(line, ' ');
 	if (line_split == NULL)
+	{
+		printf("HERE init_variable\n");
 		return (false);
+	}
 	if (check_valide_variables(line_split) == false)
 		return (false);
 	if (ft_strncmp(line_split[0], "NO", 3) == 0)
