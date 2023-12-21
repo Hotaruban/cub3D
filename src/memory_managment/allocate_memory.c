@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:58:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:29:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:01:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static t_texture *allocate_memory_texture(t_texture *texture)
 	texture->south = NULL;
 	texture->west = NULL;
 	texture->east = NULL;
-	texture->floor_color = -1;
-	texture->ceiling_color = -1;
+	texture->floor = -1;
+	texture->ceiling = -1;
 	return (texture);
 }
 
