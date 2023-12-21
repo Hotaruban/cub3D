@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 14:52:13 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:33:25 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_texture
 	char		*south;
 	char		*west;
 	char		*east;
-	int			floor_color;
-	int			ceiling_color;
+	int			floor;
+	int			ceiling;
 }	t_texture;
 
 typedef struct s_data
@@ -50,7 +50,7 @@ typedef struct s_data
 /*                                                                            */
 /* ************************************************************************** */
 
-void	msg_error_parsing(char *msg);
+void	msg_error(char *msg);
 bool	check_error_file(int ac, char *path_map);
 
 /* ************************************************************************** */

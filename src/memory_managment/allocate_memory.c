@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:58:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:19:41 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:29:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,18 @@ The function allocate_memory allocates memory for the structure t_data.
 
 t_data	*allocate_memory(t_data *data)
 {
-	t_data	*new_data;
-
-	new_data = (t_data *)malloc(sizeof(t_data));
-	if (!new_data)
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+	{
+		msg_error("Memory allocation failed!\n");
 		return (NULL);
-	new_data->texture = allocate_memory_texture(data->texture);
-	return (new_data);
+	}
+	data->texture = allocate_memory_texture(data->texture);
+	if (!data->texture)
+	{
+		free(data);
+		msg_error("Memory allocation failed!\n");
+		return (NULL);
+	}
+	return (data);
 }
