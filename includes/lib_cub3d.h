@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:33:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:43:55 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_data
 /*                                                                            */
 /* ************************************************************************** */
 
-void	msg_error(char *msg);
+void	msg_error_exit(t_data *data, char *msg);
 bool	check_error_file(int ac, char *path_map);
 
 /* ************************************************************************** */
@@ -60,10 +60,9 @@ bool	check_error_file(int ac, char *path_map);
 /* ************************************************************************** */
 
 void	init_data(t_data *data, char *path_map);
-bool	init_textures(int fd, t_texture *texture);
+bool	init_textures(int fd, t_data *data);
+bool	check_valide_variables(char **variables);
 //bool	init_map(wait for determination for the map structure);
-//void	parse_space(char *line, int *index);
-//char	*parse_string(char *line, int *index);
 
 /* ************************************************************************** */
 /*                                                                            */
