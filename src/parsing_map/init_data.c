@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:37:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 02:35:19 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/21 16:15:34 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ In a second part initialize the map if the information are correct.
 
 void	init_data(t_data *data, char *path_map)
 {
-	int	fd;
+	int		fd;
 
-	data = ft_calloc(1, sizeof(t_data));
-	if (!data)
-		msg_error_parsing("Fail in data allocation\n");
 	fd = open(path_map, O_RDONLY);
 	if (init_textures(fd, data->texture) == false)
 	{
 		close(fd);
-		free_data(data);
-		msg_error_parsing("Error in textures\n");
+		free_texture(data->texture);
+		msg_error_parsing("Error in textures data.\n");
 	}
-	// init map wait for determination for the map structure
+	/*
+	Here will be the part for reading the second part of the file for
+	init the map.
+	Now we wait for determination for the map structure to return.
+	*/
 	close(fd);
 }

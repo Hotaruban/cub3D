@@ -1,4 +1,8 @@
-Project cub3D
+# <p align = "center"> Project cub3D </p>
+
+<p align = "center">
+<a href = ><img cub3D = "cub3D" src = "../../github_profil/42_badges/badges/cub3dn.png"></a>
+</p>
 
 Team members:
 - Yu Chen (intra: ychen2)
@@ -28,4 +32,8 @@ For the Raycasting:
 - https://lodev.org/cgtutor/raycasting.html
 - https://www.youtube.com/watch?v=NbSee-XM7WA
 - https://www.youtube.com/watch?v=gYRrGTC7GtA&t=6s
+
+For math line calculation:
+- https://github.com/AmanCSE-1/Computer-Graphics/tree/main/Line-Drawing-Algorithm
+
 
