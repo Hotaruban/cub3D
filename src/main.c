@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 16:26:40 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/24 16:05:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int ac, char **av)
 	if (!data)
 		return (1);
 	init_data(data, av[1]);
+
+	test_parsing(data, "main.c");
 
 	/*
 	From here:
