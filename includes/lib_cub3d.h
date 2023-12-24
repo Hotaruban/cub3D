@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/21 17:43:55 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/24 17:09:45 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool	check_error_file(int ac, char *path_map);
 
 void	init_data(t_data *data, char *path_map);
 bool	init_textures(int fd, t_data *data);
-bool	check_valide_variables(char **variables);
+bool	check_valid_variables(char **variables);
 //bool	init_map(wait for determination for the map structure);
 
 /* ************************************************************************** */
@@ -71,6 +71,9 @@ bool	check_valide_variables(char **variables);
 /* ************************************************************************** */
 
 t_data	*allocate_memory(t_data *data);
+void	free_2d_array(char **array);
+void	free_texture(t_texture *texture);
+void	free_data(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -78,8 +81,15 @@ t_data	*allocate_memory(t_data *data);
 /*                                                                            */
 /* ************************************************************************** */
 
-void	free_2d_array(char **array);
-void	free_texture(t_texture *texture);
-void	free_data(t_data *data);
+bool	check_extension(char *path, char *ext);
+bool	check_access_file(char *path);
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                        TESTER FUNCTIONS                                    */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	test_parsing(t_data *data, char *str);
 
 #endif

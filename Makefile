@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/21 17:27:52 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/24 15:44:35 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC_FILES =	main.c \
 			message/message_error.c \
 			parsing_map/init_data.c \
 			parsing_map/init_textures.c \
-			parsing_map/utils_parser.c
+			parsing_map/utils_parser.c \
+			tester/test_parsing.c
 
 OBJ_DIR = obj
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
@@ -89,6 +90,7 @@ fclean: clean
 	@$(RM) $(LIBFT_DIR)/libft.a
 	@$(RM) $(MLX_DIR)/libmlx.a
 	@make fclean -C $(LIBFT_DIR)
+	@rm ./src/tester/.test_return
 
 # Clean and rebuild the target library
 re: fclean all
