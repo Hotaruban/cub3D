@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 23:30:35 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/14 00:52:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:53:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_2d_array(char **array)
 The free_texture function free the texture structure.
 */
 
-void	free_texture(t_texture *texture)
+static void	free_texture(t_texture *texture)
 {
 		if (texture->north)
 			free(texture->north);
