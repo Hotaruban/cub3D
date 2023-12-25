@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_textures.c                                    :+:      :+:    :+:   */
+/*   assign_textures.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 00:55:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/24 17:43:41 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/12/25 14:04:16 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/12/25 14:19:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ static bool	init_variable(t_data *data, char *line)
 }
 
 /*
-The function texture_complete check if all the textures are initialized.
+The function assign_complete check if the texture structure is complete.
 */
 
-static bool	texture_complete(t_data *data)
+static bool	assign_complete(t_data *data)
 {
 	if (data->texture->north != NULL && data->texture->south != NULL
 		&& data->texture->west != NULL && data->texture->east != NULL
@@ -93,26 +93,33 @@ static bool	texture_complete(t_data *data)
 }
 
 /*
-The function init_textures parse the map and initialize the textures if the
-information are correct.
+The function assign_textures assign the texture structure with the data
+from the map file.
 */
 
-bool	init_textures(int fd, t_data *data)
+bool	assign_textures(int fd, t_data *data)
 {
 	char	*line;
 
-	while (texture_complete(data) == false)
+	while (assign_complete(data) == false)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-			msg_error_exit(data, "Memory allocation failed\n");
+		{
+			free_data(data);
+			msg_error(MEM_ALLOC_FAILED);
+			return (false);
+		}
+		// to change begin
 		if (init_variable(data, line) == false)
 		{
 			free(line);
 			msg_error_exit(data, "Data of textures incorrect\n");
 		}
+		// to change end
 		free(line);
 	}
+
 	/*
 	Function to check if the textures in the structure are correct.
 	*/

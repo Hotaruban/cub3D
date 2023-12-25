@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:57:09 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/24 17:03:07 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:08:33 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,19 @@ and the arguments.
 bool	check_error_file(int ac, char *path_map)
 {
 	if (ac != 2)
-		msg_error_exit(NULL, "Wrong number of arguments!\n");
+	{
+		msg_error("Wrong number of arguments!");
+		return (false);
+	}
 	if (check_extension(path_map, ".cub") == false)
-		msg_error_exit(NULL, "Wrong map file extention!\n");
-	if (!check_access_file(path_map))
-		msg_error_exit(NULL, "Map file doesn't exist or not accessible!\n");
+	{
+		msg_error("Wrong map file extention!");
+		return (false);
+	}
+	if (check_access_file(path_map) == false)
+	{
+		msg_error("Map file doesn't exist or not accessible!");
+		return (false);
+	}
 	return (true);
 }
