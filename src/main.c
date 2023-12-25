@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 13:49:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:57:23 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	main(int ac, char **av)
 	data = NULL;
 	if (check_error_file(ac, av[1]) == false)
 		return (EXIT_FAILURE);
-	if (alloc_mem_init(data) == NULL)
-		return (EXIT_FAILURE);
-	if (data == NULL)
+	if (alloc_mem_init(data) == false)
 		return (EXIT_FAILURE);
 	if (init_data(data, av[1]) == false)
 		return (EXIT_FAILURE);
