@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/24 17:09:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:53:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@
 # include <stdbool.h>
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                           MACRO DEFINITIONS                                */
+/*                                                                            */
+/* ************************************************************************** */
+
+# define EXIT_SUCCESS 0
+# define EXIT_FAILURE 1
+# define MEMORY_ALLOCATION "Memory allocation failed!"
+# define NB_ARGS "Wrong number of arguments!"
+# define EXTENSION "Wrong file extention!"
+# define FILE_NOT_FOUND "File not found or does not exist!"
+# define TEXTURE_INVALID "Texture data is not correct!"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -46,12 +60,12 @@ typedef struct s_data
 
 /* ************************************************************************** */
 /*                                                                            */
-/*                        ERROR MANAGEMENT FUNCTIONS                          */
+/*                        MESSAGE ERROR DEFINITIONS                           */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	msg_error_exit(t_data *data, char *msg);
-bool	check_error_file(int ac, char *path_map);
+void	msg_error(char *msg);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -59,9 +73,9 @@ bool	check_error_file(int ac, char *path_map);
 /*                                                                            */
 /* ************************************************************************** */
 
-void	init_data(t_data *data, char *path_map);
-bool	init_textures(int fd, t_data *data);
-bool	check_valid_variables(char **variables);
+bool	check_error_file(int ac, char *path_map);
+bool	definitions_data(t_data *data, char *path_map);
+bool	definitions_textures(int fd, t_data *data);
 //bool	init_map(wait for determination for the map structure);
 
 /* ************************************************************************** */
@@ -70,10 +84,9 @@ bool	check_valid_variables(char **variables);
 /*                                                                            */
 /* ************************************************************************** */
 
-t_data	*allocate_memory(t_data *data);
-void	free_2d_array(char **array);
-void	free_texture(t_texture *texture);
+bool	alloc_mem_init(t_data *data);
 void	free_data(t_data *data);
+void	free_2d_array(char **array);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -81,6 +94,7 @@ void	free_data(t_data *data);
 /*                                                                            */
 /* ************************************************************************** */
 
+bool	check_valid_variables(char **variables);
 bool	check_extension(char *path, char *ext);
 bool	check_access_file(char *path);
 
