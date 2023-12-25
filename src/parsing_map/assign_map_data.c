@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   assign_map_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 00:37:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/24 15:43:38 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/12/25 14:06:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lib_cub3d.h"
 
 /*
-The function init_data initialize the data structure.
-In a first part parse the map and initialize the textures if the information
-are correct.
-In a second part initialize the map if the information are correct.
+The function assign_map_data assign the data structure with the data
+from the map file.
 */
 
-void	init_data(t_data *data, char *path_map)
+bool	assign_map_data(t_data *data, char *path_map)
 {
 	int		fd;
 
 	fd = open(path_map, O_RDONLY);
-	if (init_textures(fd, data) == false)
-	{
-		close(fd);
-		msg_error_exit(data, "Error in textures data.\n");
-	}
+	if (assign_textures(fd, data) == false)
+		return (false);
 	/*
 	Here will be the part for reading the second part of the file for
 	init the map.
 	Now we wait for determination for the map structure to return.
 	*/
 	close(fd);
+	return (true);
 }

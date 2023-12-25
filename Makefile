@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/24 15:44:35 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/25 14:04:06 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,12 @@ MLX_DIR = mlx
 
 SRC_DIR =src
 SRC_FILES =	main.c \
-			error_managment/check_error_file.c \
+			message/message_error.c \
 			memory_managment/allocate_memory.c \
 			memory_managment/free_all.c \
-			message/message_error.c \
-			parsing_map/init_data.c \
-			parsing_map/init_textures.c \
+			parsing_map/check_error_file.c \
+			parsing_map/assign_map_data.c \
+			parsing_map/assign_textures.c \
 			parsing_map/utils_parser.c \
 			tester/test_parsing.c
 

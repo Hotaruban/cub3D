@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:58:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 13:56:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 14:16:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ bool	alloc_mem_init(t_data *data)
 	data = (t_data *)malloc(sizeof(t_data));
 	if (data == NULL)
 	{
-		msg_error(MEMORY_ALLOCATION);
+		msg_error(MEM_ALLOC_FAILED);
 		return (false);
 	}
 	if (init_texture(data->texture) == false)
 	{
 		free_data(data);
-		msg_error(MEMORY_ALLOCATION);
+		msg_error(MEM_ALLOC_FAILED);
 		return (false);
 	}
 	return (true);

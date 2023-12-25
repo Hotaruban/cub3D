@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 13:53:22 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 14:16:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
-# define MEMORY_ALLOCATION "Memory allocation failed!"
+# define MEM_ALLOC_FAILED "Memory allocation failed!"
 # define NB_ARGS "Wrong number of arguments!"
 # define EXTENSION "Wrong file extention!"
 # define FILE_NOT_FOUND "File not found or does not exist!"
@@ -64,7 +64,7 @@ typedef struct s_data
 /*                                                                            */
 /* ************************************************************************** */
 
-void	msg_error_exit(t_data *data, char *msg);
+//void	msg_error_exit(t_data *data, char *msg);
 void	msg_error(char *msg);
 
 /* ************************************************************************** */
@@ -74,8 +74,8 @@ void	msg_error(char *msg);
 /* ************************************************************************** */
 
 bool	check_error_file(int ac, char *path_map);
-bool	definitions_data(t_data *data, char *path_map);
-bool	definitions_textures(int fd, t_data *data);
+bool	assign_map_data(t_data *data, char *path_map);
+bool	assign_textures(int fd, t_data *data);
 //bool	init_map(wait for determination for the map structure);
 
 /* ************************************************************************** */
