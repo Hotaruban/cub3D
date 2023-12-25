@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:58:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 13:52:04 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:56:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static bool init_texture(t_texture *texture)
 {
 	texture = (t_texture *)malloc(sizeof(t_texture));
 	if (texture == NULL)
-		return (NULL);
+		return (false);
 	texture->north = NULL;
 	texture->south = NULL;
 	texture->west = NULL;
 	texture->east = NULL;
 	texture->floor = -1;
 	texture->ceiling = -1;
-	return (texture);
+	return (true);
 }
 
 /*
@@ -49,5 +49,5 @@ bool	alloc_mem_init(t_data *data)
 		msg_error(MEMORY_ALLOCATION);
 		return (false);
 	}
-	return (data);
+	return (true);
 }
