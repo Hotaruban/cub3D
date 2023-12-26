@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 14:16:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/26 14:54:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+typedef struct s_pos
+{
+	int			x;
+	int			y;
+}	t_pos;
+
+typedef struct s_draw
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_draw;
+
 typedef struct s_texture
 {
-	char		*north;
-	char		*south;
-	char		*west;
-	char		*east;
+	t_draw		north;
+	t_draw		south;
+	t_draw		west;
+	t_draw		east;
 	int			floor;
 	int			ceiling;
 }	t_texture;
 
 typedef struct s_data
 {
-	t_texture	*texture;
+	t_texture	texture;
+	char		**map;
+	char		face_dir;
+	t_pos		hero;
 }	t_data;
 
 /* ************************************************************************** */
