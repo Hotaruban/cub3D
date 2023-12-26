@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:04:16 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/25 14:19:00 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/26 14:00:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ static char	*path_texture(t_data *data, char **path)
 {
 	char	*tmp;
 
+	(void) data;
 	if (path[2] != NULL)
 	{
 		free_2d_array(path);
-		msg_error_exit(data, "Too many arguments for texture.\n");
+		msg_error("Too many arguments for texture.\n");
 	}
 	if (path[1][ft_strlen(path[1]) - 1] == '\n')
 		tmp = ft_substr(path[1], 0, ft_strlen(path[1]) - 1);
@@ -32,16 +33,16 @@ static char	*path_texture(t_data *data, char **path)
 		tmp = ft_strdup(path[1]);
 	free_2d_array(path);
 	if (tmp == NULL)
-		msg_error_exit(data, "Memory allocation failed\n");
+		msg_error("Memory allocation failed\n");
 	if (check_extension(tmp, ".xpm") == false)
 	{
 		free(tmp);
-		msg_error_exit(data, "Texture extension is not correct.\n");
+		msg_error("Texture extension is not correct.\n");
 	}
 	if (check_access_file(tmp) == false)
 	{
 		free(tmp);
-		msg_error_exit(data, "Texture path is not correct.\n");
+		msg_error("Texture path is not correct.\n");
 	}
 	return (tmp);
 }
@@ -114,7 +115,7 @@ bool	assign_textures(int fd, t_data *data)
 		if (init_variable(data, line) == false)
 		{
 			free(line);
-			msg_error_exit(data, "Data of textures incorrect\n");
+			msg_error("Data of textures incorrect\n");
 		}
 		// to change end
 		free(line);
