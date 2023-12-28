@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/26 14:54:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/28 17:11:57 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,17 @@
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
+
 # define MEM_ALLOC_FAILED "Memory allocation failed!"
 # define NB_ARGS "Wrong number of arguments!"
 # define EXTENSION "Wrong file extention!"
-# define FILE_NOT_FOUND "File not found or does not exist!"
+# define FILE_NOT_FOUND "File not found or not accessible!"
 # define TEXTURE_INVALID "Texture data is not correct!"
+
+# define NORTH data->texture.north
+# define SOUTH data->texture.south
+# define WEST data->texture.west
+# define EAST data->texture.east
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -45,8 +51,8 @@
 
 typedef struct s_pos
 {
-	int			x;
-	int			y;
+	double	x;
+	double	y;
 }	t_pos;
 
 typedef struct s_draw
@@ -78,33 +84,14 @@ typedef struct s_data
 
 /* ************************************************************************** */
 /*                                                                            */
-/*                        MESSAGE ERROR DEFINITIONS                           */
+/*                        INITIALIZATION FUNCTIONS                            */
 /*                                                                            */
 /* ************************************************************************** */
 
-//void	msg_error_exit(t_data *data, char *msg);
-void	msg_error(char *msg);
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                        PARSING FUNCTIONS                                   */
-/*                                                                            */
-/* ************************************************************************** */
-
-bool	check_error_file(int ac, char *path_map);
-bool	assign_map_data(t_data *data, char *path_map);
-bool	assign_textures(int fd, t_data *data);
-//bool	init_map(wait for determination for the map structure);
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                        MEMORY MANAGEMENT FUNCTIONS                         */
-/*                                                                            */
-/* ************************************************************************** */
-
-bool	alloc_mem_init(t_data *data);
-void	free_data(t_data *data);
-void	free_2d_array(char **array);
+void	init_data(t_data *data);
+bool	assign_data(t_data *data, char *path_map);
+bool	assign_textures(t_data *data, char **tab);
+bool	textures_assigned(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -112,9 +99,11 @@ void	free_2d_array(char **array);
 /*                                                                            */
 /* ************************************************************************** */
 
-bool	check_valid_variables(char **variables);
+void	msg_error(char *msg);
 bool	check_extension(char *path, char *ext);
 bool	check_access_file(char *path);
+void	free_data(t_data *data);
+void	free_tab(char **tab);
 
 /* ************************************************************************** */
 /*                                                                            */
