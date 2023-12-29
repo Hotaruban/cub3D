@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:32:18 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 00:05:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 03:09:33 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,18 @@ void	test_parsing(t_data *data, char *str)
 		fprintf(p_fd, "\tdata->texture->ceiling = %d\n", data->texture.ceiling);
 		fprintf(p_fd, "--- END of data->texture ---\n");
 		print_map(data, p_fd);
+	}
+}
+
+void	print_list(t_list *list)
+{
+	int		i;
+
+	i = 0;
+	while (list != NULL)
+	{
+		printf("line [%d] => %s\n", i, (char *)list->content);
+		list = list->next;
+		i++;
 	}
 }

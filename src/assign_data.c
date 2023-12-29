@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 00:20:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 04:38:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,31 @@ Then the function create_map create the map.
 Finally the function assign_hero assign the hero to the data structure.
 */
 
-/*
 static bool	assign_hero(t_data *data)
 {
+	bool	hero_found;
+	int		y;
 
+	hero_found = false;
+	y = 0;
+	while (data->map[y] != NULL)
+	{
+		if (data->face_dir != 'C')
+			hero_found = true;
+		if (find_hero_line(data, y) == true && hero_found == true)
+		{
+			msg_error("Too many hero");
+			return (false);
+		}
+		y++;
+	}
+	if (data->face_dir == 'C')
+	{
+		msg_error("No hero");
+		return (false);
+	}
 	return (true);
 }
-*/
 
 /*
 The function textures_assigned checks if all the textures are assigned.
@@ -41,6 +59,10 @@ static bool	textures_assigned(t_data *data)
 		return (true);
 	return (false);
 }
+
+/*
+Still have to check the valid data of the textures
+*/
 
 static bool	create_textures(t_data *data, int fd)
 {
@@ -63,15 +85,21 @@ static bool	create_textures(t_data *data, int fd)
 }
 
 /*
-	static bool	create_map(t_data *data, int fd)
-	{
-
-
-		function to check if the map is valid.
-
-		return (true);
-	}
+Still have to check the valid data of the map
 */
+
+static bool	create_map(t_data *data, int fd)
+{
+	t_list	*line_list;
+
+	line_list = NULL;
+	if (assign_map(fd, &line_list) == false)
+		return (false);
+	pass_list_to_tab(data, line_list);
+	if (assign_hero(data) == false)
+		return (false);
+	return (true);
+}
 
 bool	assign_data(t_data *data, char *path_map)
 {
@@ -88,18 +116,11 @@ bool	assign_data(t_data *data, char *path_map)
 		close(fd);
 		return (false);
 	}
-	/*
-	if (create_map(&data, fd) == false)
+	if (create_map(data, fd) == false)
 	{
 		close(fd);
 		return (false);
 	}
-	*/
-	/*
 	close(fd);
-
-	if (assign_hero(&data) == false)
-		return (false);
-	*/
 	return (true);
 }
