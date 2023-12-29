@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:56:15 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/29 23:44:22 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 03:01:30 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ If the string str end with '\n' the function assign_variable remove the '\n'.
 
 void	assign_variable(char **var, char *str)
 {
-	(void)var;
 	if (str[ft_strlen(str) - 1] == '\n')
 		*var = ft_substr(str, 0, ft_strlen(str) - 1);
 	else

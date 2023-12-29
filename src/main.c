@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 16:46:22 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 00:18:41 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,12 @@ int	main(int ac, char **av)
 	/*
 	END OF TEST
 	*/
-
 	/*
 	From here:
 	The map must be correctly initialized.
-	We open the MiniLibX window and the program will wait for the user to press a key.
+	We open the MiniLibX window
+	and the program will wait for the user to press a key.
 	*/
-
 	free_data(&data);
 	return (EXIT_SUCCESS);
 }
