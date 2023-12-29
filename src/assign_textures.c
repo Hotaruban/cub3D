@@ -6,38 +6,50 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:43:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 17:01:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/29 23:50:45 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
 /*
-The function textures_assigned checks if all the textures are assigned.
-Function used in the function create_textures in file assign_data.c.
+The function check_color checks if the color is valid.
 */
 
-bool	textures_assigned(t_data *data)
+static bool	check_color(char **tab_rgb)
 {
-	if (NORTH.addr != NULL && SOUTH.addr != NULL
-		&& WEST.addr != NULL && EAST.addr != NULL
-		&& data->texture.floor != -1 && data->texture.ceiling != -1)
-		return (true);
-	return (false);
+	if (len_variables(tab_rgb) != 3)
+		return (false);
+	if (check_valid_digit(tab_rgb[0]) == false
+		|| check_valid_digit(tab_rgb[1]) == false
+		|| check_valid_digit(tab_rgb[2]) == false)
+		return (false);
+	if ((ft_atoi(tab_rgb[0]) < 0 && ft_atoi(tab_rgb[0]) > 255)
+		|| (ft_atoi(tab_rgb[1]) < 0 && ft_atoi(tab_rgb[1]) > 255)
+		|| (ft_atoi(tab_rgb[2]) < 0 && ft_atoi(tab_rgb[2]) > 255))
+		return (false);
+	return (true);
 }
 
 /*
-The function counts the number of strings in the line.
+The function assign_color assign the color to the data structure.
 */
 
-static size_t	len_variables(char **variables)
+static void	assign_color(int *color, char *rgb_str)
 {
-	size_t	len;
+	char	**tab_rgb;
+	char	*tmp;
 
-	len = 0;
-	while (variables[len])
-		len++;
-	return (len);
+	tmp = NULL;
+	assign_variable(&tmp, rgb_str);
+	tab_rgb = ft_split(tmp, ',');
+	if (check_color(tab_rgb) == false)
+		*color = -2;
+	else
+		*color = (ft_atoi(tab_rgb[0]) * 256 * 256
+			+ ft_atoi(tab_rgb[1]) * 256 + ft_atoi(tab_rgb[2]));
+	free_tab(tab_rgb);
+	free(tmp);
 }
 
 /*
@@ -74,19 +86,6 @@ static bool	check_valid_variables(char **tab)
 }
 
 /*
-The function assign_walls assign the walls to the data structure.
-If the line ends with a '\n' the function removes it.
-*/
-
-static void	assign_walls(t_draw *cardinal, char **tab)
-{
-	if (tab[1][ft_strlen(tab[1]) - 1] == '\n')
-		cardinal->addr = ft_substr(tab[1], 0, ft_strlen(tab[1]) - 1);
-	else
-		cardinal->addr = ft_strdup(tab[1]);
-}
-
-/*
 The function assign_textures assign the textures to the data structure.
 */
 
@@ -95,17 +94,17 @@ bool	assign_textures(t_data *data, char **tab)
 	if (check_valid_variables(tab) == false)
 		return (false);
 	if (ft_strncmp(tab[0], "NO", 3) == 0 && NORTH.addr == NULL)
-		assign_walls(&NORTH, tab);
+		assign_variable(&(NORTH.addr), tab[1]);
 	else if (ft_strncmp(tab[0], "SO", 3) == 0 && SOUTH.addr == NULL)
-		assign_walls(&SOUTH, tab);
+		assign_variable(&(SOUTH.addr), tab[1]);
 	else if (ft_strncmp(tab[0], "WE", 3) == 0 && WEST.addr == NULL)
-		assign_walls(&WEST, tab);
+		assign_variable(&(WEST.addr), tab[1]);
 	else if (ft_strncmp(tab[0], "EA", 3) == 0 && EAST.addr == NULL)
-		assign_walls(&EAST, tab);
+		assign_variable(&(EAST.addr), tab[1]);
 	else if (ft_strncmp(tab[0], "F", 2) == 0 && data->texture.floor == -1)
-		data->texture.floor = 0;
+		assign_color(&(data->texture.floor), tab[1]);
 	else if (ft_strncmp(tab[0], "C", 2) == 0 && data->texture.ceiling == -1)
-		data->texture.ceiling = 0;
+		assign_color(&(data->texture.ceiling), tab[1]);
 	else if (ft_strncmp(tab[0], "\n", 2) != 0)
 		return (false);
 	return (true);

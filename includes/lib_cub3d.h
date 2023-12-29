@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 17:11:57 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/29 23:44:53 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# define EXIT_SUCCESS 0
-# define EXIT_FAILURE 1
+# define EXIT_SUCCESS	0
+# define EXIT_FAILURE	1
 
-# define MEM_ALLOC_FAILED "Memory allocation failed!"
-# define NB_ARGS "Wrong number of arguments!"
-# define EXTENSION "Wrong file extention!"
-# define FILE_NOT_FOUND "File not found or not accessible!"
-# define TEXTURE_INVALID "Texture data is not correct!"
+# define NORTH	data->texture.north
+# define SOUTH	data->texture.south
+# define WEST	data->texture.west
+# define EAST	data->texture.east
 
-# define NORTH data->texture.north
-# define SOUTH data->texture.south
-# define WEST data->texture.west
-# define EAST data->texture.east
+# define MEM_ALLOC_FAILED	"Memory allocation failed!"
+# define NB_ARGS			"Wrong number of arguments!"
+# define EXTENSION			"Wrong file extention!"
+# define FILE_NOT_FOUND		"File not found or not accessible!"
+# define TEXTURE_INVALID	"Texture data is not correct!"
+# define COLOR_INVALID		"Color data is not correct!"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -91,7 +92,6 @@ typedef struct s_data
 void	init_data(t_data *data);
 bool	assign_data(t_data *data, char *path_map);
 bool	assign_textures(t_data *data, char **tab);
-bool	textures_assigned(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -99,11 +99,14 @@ bool	textures_assigned(t_data *data);
 /*                                                                            */
 /* ************************************************************************** */
 
-void	msg_error(char *msg);
+size_t	len_variables(char **variables);
 bool	check_extension(char *path, char *ext);
 bool	check_access_file(char *path);
+bool	check_valid_digit(char *str);
+void	assign_variable(char **var, char *str);
 void	free_data(t_data *data);
 void	free_tab(char **tab);
+void	msg_error(char *msg);
 
 /* ************************************************************************** */
 /*                                                                            */

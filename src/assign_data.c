@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 16:58:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/29 23:12:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Then the function create_map create the map.
 Finally the function assign_hero assign the hero to the data structure.
 */
 
+
 /*
 static bool	assign_hero(t_data *data)
 {
@@ -27,6 +28,20 @@ static bool	assign_hero(t_data *data)
 	return (true);
 }
 */
+
+/*
+The function textures_assigned checks if all the textures are assigned.
+Function used in the function create_textures in file assign_data.c.
+*/
+
+static bool	textures_assigned(t_data *data)
+{
+	if (NORTH.addr != NULL && SOUTH.addr != NULL
+		&& WEST.addr != NULL && EAST.addr != NULL
+		&& data->texture.floor != -1 && data->texture.ceiling != -1)
+		return (true);
+	return (false);
+}
 
 static bool	create_textures(t_data *data, int fd)
 {
@@ -51,16 +66,14 @@ static bool	create_textures(t_data *data, int fd)
 	return (true);
 }
 
-/*
-static bool	create_map(t_data *data, int fd)
-{
-	// function to create the map.
+//static bool	create_map(t_data *data, int fd)
+//{
 
-	// function to check if the map is valid.
 
-	return (true);
-}
-*/
+//	// function to check if the map is valid.
+
+//	return (true);
+//}
 
 bool	assign_data(t_data *data, char *path_map)
 {
@@ -84,9 +97,11 @@ bool	assign_data(t_data *data, char *path_map)
 		close(fd);
 		return (false);
 	}
+	*/
 
+	/*
 	close(fd);
-	
+
 	if (assign_hero(&data) == false)
 		return (false);
 	*/

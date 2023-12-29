@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:56:15 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 15:41:14 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/29 23:44:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,51 @@ bool	check_access_file(char *path)
 	if (fd < 0)
 		return (false);
 	close(fd);
+	return (true);
+}
+
+/*
+The function assign_variable assign the variable with the string str.
+If the string str end with '\n' the function assign_variable remove the '\n'.
+*/
+
+void	assign_variable(char **var, char *str)
+{
+	(void)var;
+	if (str[ft_strlen(str) - 1] == '\n')
+		*var = ft_substr(str, 0, ft_strlen(str) - 1);
+	else
+		*var = ft_strdup(str);
+}
+
+/*
+The function counts the number of strings in the line.
+*/
+
+size_t	len_variables(char **variables)
+{
+	size_t	len;
+
+	len = 0;
+	while (variables[len])
+		len++;
+	return (len);
+}
+
+/*
+The function check_valid_digit checks if the string is a valid digit.
+*/
+
+bool	check_valid_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (false);
+		i++;
+	}
 	return (true);
 }
