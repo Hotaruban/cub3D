@@ -6,14 +6,15 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 04:38:49 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 04:45:15 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
 /*
-The function
+The function find_hero_line find the line where the hero is and assign
+the hero position to the data structure.
 */
 
 bool	find_hero_line(t_data *data, int y)

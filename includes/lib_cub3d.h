@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 04:29:29 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 05:11:14 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define EXIT_SUCCESS	0
 # define EXIT_FAILURE	1
 
+# define WIDTH	900
+# define HEIGHT	900
+
 # define NORTH	data->texture.north
 # define SOUTH	data->texture.south
 # define WEST	data->texture.west
@@ -49,12 +52,6 @@
 /*                        STRUCTURES DEFINITIONS                              */
 /*                                                                            */
 /* ************************************************************************** */
-
-typedef struct s_line
-{
-	char			*line;
-	struct s_line	*next;
-}		t_line;
 
 typedef struct s_pos
 {
@@ -83,6 +80,7 @@ typedef struct s_texture
 
 typedef struct s_data
 {
+	void		*mlx;
 	t_texture	texture;
 	char		**map;
 	char		face_dir;
@@ -99,6 +97,8 @@ void	init_data(t_data *data);
 bool	assign_data(t_data *data, char *path_map);
 bool	assign_textures(t_data *data, char **tab);
 bool	assign_map(int fd, t_list **list);
+bool	check_valid_textures(t_data *data);
+//bool	check_valid_map(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
