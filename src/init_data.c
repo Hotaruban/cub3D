@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/27 14:44:05 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 00:06:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	init_data(t_data *data)
 	init_texture(&data->texture);
 	data->map = NULL;
 	init_hero(&data->hero);
-	data->face_dir = 0;
+	data->face_dir = 'C';
 }
