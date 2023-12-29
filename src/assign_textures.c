@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:43:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/29 23:50:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 00:17:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	assign_color(int *color, char *rgb_str)
 		*color = -2;
 	else
 		*color = (ft_atoi(tab_rgb[0]) * 256 * 256
-			+ ft_atoi(tab_rgb[1]) * 256 + ft_atoi(tab_rgb[2]));
+				+ ft_atoi(tab_rgb[1]) * 256 + ft_atoi(tab_rgb[2]));
 	free_tab(tab_rgb);
 	free(tmp);
 }

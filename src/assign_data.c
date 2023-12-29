@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/29 23:12:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 00:20:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ First the function assign_textures assign the textures to the data structure.
 Then the function create_map create the map.
 Finally the function assign_hero assign the hero to the data structure.
 */
-
 
 /*
 static bool	assign_hero(t_data *data)
@@ -60,20 +59,19 @@ static bool	create_textures(t_data *data, int fd)
 		}
 		free_tab(tab);
 	}
-
-	// function to check if the texture are valid.
-
 	return (true);
 }
 
-//static bool	create_map(t_data *data, int fd)
-//{
+/*
+	static bool	create_map(t_data *data, int fd)
+	{
 
 
-//	// function to check if the map is valid.
+		function to check if the map is valid.
 
-//	return (true);
-//}
+		return (true);
+	}
+*/
 
 bool	assign_data(t_data *data, char *path_map)
 {
@@ -90,7 +88,6 @@ bool	assign_data(t_data *data, char *path_map)
 		close(fd);
 		return (false);
 	}
-
 	/*
 	if (create_map(&data, fd) == false)
 	{
@@ -98,13 +95,11 @@ bool	assign_data(t_data *data, char *path_map)
 		return (false);
 	}
 	*/
-
 	/*
 	close(fd);
 
 	if (assign_hero(&data) == false)
 		return (false);
 	*/
-
 	return (true);
 }

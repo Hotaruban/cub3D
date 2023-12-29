@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 00:06:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 00:18:02 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	init_texture(t_texture *texture)
 	texture->ceiling = -1;
 }
 
-static void init_hero(t_pos *hero)
+static void	init_hero(t_pos *hero)
 {
 	hero->x = -1;
 	hero->y = -1;
