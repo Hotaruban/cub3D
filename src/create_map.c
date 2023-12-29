@@ -6,18 +6,27 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 15:49:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/29 22:12:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
-//bool	assign_map(t_data *data, int fd)
+//bool	line_empty(char *line)
 //{
+//	int i;
 
+//	i = 0;
+//	while (line[i] || line[i] == '\n')
+//	{
+//		if (line[i] != ' ')
+//			return (false);
+//		i++;
+//	}
+//	return (true);
 //}
 
-//bool	create_map(t_data *data, int fd)
+//bool	assign_map()
 //{
 
 //}

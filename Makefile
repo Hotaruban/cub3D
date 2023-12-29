@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/28 16:57:40 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/29 22:12:57 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@ SRC_FILES =	main.c \
 			message_error.c \
 			assign_data.c \
 			assign_textures.c \
-			create_map.c \
 			free_data.c \
 			utils_parser.c \
 			tester/test_parsing.c \
+			#create_map.c \
 
 OBJ_DIR = obj
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
