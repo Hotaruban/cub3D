@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 05:11:14 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 12:10:14 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//typedef struct s_draw
+//{
+//	void	*img;
+//	char	*addr;
+//	int		bits_per_pixel;
+//	int		line_length;
+//	int		endian;
+//}	t_draw;
+
 typedef struct s_pos
 {
 	double	x;
 	double	y;
 }	t_pos;
 
-typedef struct s_draw
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_draw;
+	int		width;
+	int		height;
+}	t_image;
 
 typedef struct s_texture
 {
-	t_draw		north;
-	t_draw		south;
-	t_draw		west;
-	t_draw		east;
+	t_image		north;
+	t_image		south;
+	t_image		west;
+	t_image		east;
 	int			floor;
 	int			ceiling;
 }	t_texture;
@@ -98,6 +106,7 @@ bool	assign_data(t_data *data, char *path_map);
 bool	assign_textures(t_data *data, char **tab);
 bool	assign_map(int fd, t_list **list);
 bool	check_valid_textures(t_data *data);
+bool	open_file_img(t_data *data);
 //bool	check_valid_map(t_data *data);
 
 /* ************************************************************************** */

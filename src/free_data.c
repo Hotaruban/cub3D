@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/28 15:26:39 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 12:09:47 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,20 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
+static void	free_img(t_image *img)
+{
+	if (img->img)
+		free(img->img);
+	if (img->addr)
+		free(img->addr);
+}
+
 void	free_data(t_data *data)
 {
-	if (data->texture.north.addr)
-		free(data->texture.north.addr);
-	if (data->texture.south.addr)
-		free(data->texture.south.addr);
-	if (data->texture.west.addr)
-		free(data->texture.west.addr);
-	if (data->texture.east.addr)
-		free(data->texture.east.addr);
+	free_img(&NORTH);
+	free_img(&SOUTH);
+	free_img(&WEST);
+	free_img(&EAST);
 	if (data->map)
 		free_tab(data->map);
 }

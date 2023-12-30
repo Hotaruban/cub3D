@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:32:18 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 05:28:30 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 12:03:41 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_map(t_data *data, FILE *p_fd)
 	{
 		while (data->map[i])
 		{
-			fprintf(p_fd, "\tdata->map[%d] = \t\t%s<-\n", i, data->map[i]);
+			fprintf(p_fd, "\tdata->map[%d] \t= \t%s<-\n", i, data->map[i]);
 			i++;
 		}
 	}
@@ -38,33 +38,25 @@ void	print_map(t_data *data, FILE *p_fd)
 	fprintf(p_fd, "--- END of data->map ---\n");
 }
 
+static void	print_img(FILE *p_fd, t_image *img)
+{
+	fprintf(p_fd, "\timg = \t\t%p<-\n", img->img);
+	fprintf(p_fd, "\taddr = \t\t%s<-\n", img->addr);
+	fprintf(p_fd, "\twidth = \t%d<-\n", img->width);
+	fprintf(p_fd, "\theight = \t%d<-\n", img->height);
+}
+
 static void	print_img_data(t_data *data, FILE *p_fd)
 {
 	fprintf(p_fd, "\n--- START of Image ---\n");
 	fprintf(p_fd, "--- NORTH ---\n");
-	fprintf(p_fd, "\tdata->texture->north.img = \t%p<-\n", NORTH.img);
-	fprintf(p_fd, "\tdata->texture->north.addr = \t%s<-\n", NORTH.addr);
-	fprintf(p_fd, "\tdata->texture->north.bits_per_pixel = \t%d<-\n", NORTH.bits_per_pixel);
-	fprintf(p_fd, "\tdata->texture->north.line_length = \t%d<-\n", NORTH.line_length);
-	fprintf(p_fd, "\tdata->texture->north.endian = \t%d<-\n", NORTH.endian);
+	print_img(p_fd, &NORTH);
 	fprintf(p_fd, "--- SOUTH ---\n");
-	fprintf(p_fd, "\tdata->texture->south.img = \t%p<-\n", SOUTH.img);
-	fprintf(p_fd, "\tdata->texture->south.addr = \t%s<-\n", SOUTH.addr);
-	fprintf(p_fd, "\tdata->texture->south.bits_per_pixel = \t%d<-\n", SOUTH.bits_per_pixel);
-	fprintf(p_fd, "\tdata->texture->south.line_length = \t%d<-\n", SOUTH.line_length);
-	fprintf(p_fd, "\tdata->texture->south.endian = \t%d<-\n", SOUTH.endian);
+	print_img(p_fd, &SOUTH);
 	fprintf(p_fd, "--- WEST ---\n");
-	fprintf(p_fd, "\tdata->texture->west.img = \t%p<-\n", WEST.img);
-	fprintf(p_fd, "\tdata->texture->west.addr = \t%s<-\n", WEST.addr);
-	fprintf(p_fd, "\tdata->texture->west.bits_per_pixel = \t%d<-\n", WEST.bits_per_pixel);
-	fprintf(p_fd, "\tdata->texture->west.line_length = \t%d<-\n", WEST.line_length);
-	fprintf(p_fd, "\tdata->texture->west.endian = \t%d<-\n", WEST.endian);
+	print_img(p_fd, &WEST);
 	fprintf(p_fd, "--- EAST ---\n");
-	fprintf(p_fd, "\tdata->texture->east.img = \t%p<-\n", EAST.img);
-	fprintf(p_fd, "\tdata->texture->east.addr = \t%s<-\n", EAST.addr);
-	fprintf(p_fd, "\tdata->texture->east.bits_per_pixel = \t%d<-\n", EAST.bits_per_pixel);
-	fprintf(p_fd, "\tdata->texture->east.line_length = \t%d<-\n", EAST.line_length);
-	fprintf(p_fd, "\tdata->texture->east.endian = \t%d<-\n", EAST.endian);
+	print_img(p_fd, &EAST);
 	fprintf(p_fd, "--- END of Image ---\n");
 }
 
