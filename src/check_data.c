@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 12:13:05 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 13:10:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,34 @@ bool	open_file_img(t_data *data)
 	EAST.img = mlx_xpm_file_to_image(data->mlx, EAST.addr,
 			&EAST.width, &EAST.height);
 	if (EAST.img == NULL)
+		return (false);
+	return (true);
+}
+
+bool	check_hero_pos(t_data *data)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	if (HERO.x == 0 || HERO.y == 0 || HERO.x == -1 || HERO.y == -1)
+		return (false);
+	i = -1;
+	j = -1;
+	flag = 0;
+	while (i < 2 && (data->map[(int)HERO.y + i][(int)HERO.x + j] == '1'
+		|| data->map[(int)HERO.y + i][(int)HERO.x + j] == '0'))
+	{
+		while (j < 2 && (data->map[(int)HERO.y + i][(int)HERO.x + j] == '1'
+			|| data->map[(int)HERO.y + i][(int)HERO.x + j] == '0'))
+		{
+			flag++;
+			j++;
+		}
+		j = -1;
+		i++;
+	}
+	if (flag != 9)
 		return (false);
 	return (true);
 }

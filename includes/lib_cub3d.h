@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 12:10:14 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 13:00:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define SOUTH	data->texture.south
 # define WEST	data->texture.west
 # define EAST	data->texture.east
+# define HERO	data->hero
 
 # define MEM_ALLOC_FAILED	"Memory allocation failed!"
 # define NB_ARGS			"Wrong number of arguments!"
@@ -120,6 +121,7 @@ bool	check_extension(char *path, char *ext);
 bool	check_access_file(char *path);
 bool	check_valid_digit(char *str);
 bool	find_hero_line(t_data *data, int y);
+bool	check_hero_pos(t_data *data);
 void	pass_list_to_tab(t_data *data, t_list *list);
 void	assign_variable(char **var, char *str);
 void	free_data(t_data *data);
