@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 04:45:15 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 13:04:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ bool	find_hero_line(t_data *data, int y)
 		if (data->map[y][x] == 'N' || data->map[y][x] == 'S'
 			|| data->map[y][x] == 'W' || data->map[y][x] == 'E')
 		{
-			data->hero.x = (double)x;
-			data->hero.y = (double)y;
+			HERO.x = (double)x;
+			HERO.y = (double)y;
 			data->face_dir = data->map[y][x];
 			data->map[y][x] = '0';
 			hero_found = true;
