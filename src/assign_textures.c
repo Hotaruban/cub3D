@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:43:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 11:47:57 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 17:45:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,17 @@ The function check_color checks if the color is valid.
 
 static bool	check_color(char **tab_rgb)
 {
+	int	i;
+
+	i = 0;
 	if (len_variables(tab_rgb) != 3)
 		return (false);
+	while (tab_rgb[i])
+	{
+		if (ft_strlen(tab_rgb[i]) > 3)
+			return (false);
+		i++;
+	}
 	if (check_valid_digit(tab_rgb[0]) == false
 		|| check_valid_digit(tab_rgb[1]) == false
 		|| check_valid_digit(tab_rgb[2]) == false)
