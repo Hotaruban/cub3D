@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 04:38:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 12:11:17 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ static bool	create_textures(t_data *data, int fd)
 		}
 		free_tab(tab);
 	}
+	if (check_valid_textures(data) == false)
+		return (false);
+	if (open_file_img(data) == false)
+	{
+		msg_error("Failed to open the image file");
+		return (false);
+	}
 	return (true);
 }
 
@@ -98,6 +105,8 @@ static bool	create_map(t_data *data, int fd)
 	pass_list_to_tab(data, line_list);
 	if (assign_hero(data) == false)
 		return (false);
+	//if (check_valid_map(data) == false)
+	//	return (false);
 	return (true);
 }
 
@@ -111,6 +120,7 @@ bool	assign_data(t_data *data, char *path_map)
 		msg_error("Failed to open the file");
 		return (false);
 	}
+	data->mlx = mlx_init();
 	if (create_textures(data, fd) == false)
 	{
 		close(fd);

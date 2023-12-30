@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 04:29:29 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/30 12:10:14 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define EXIT_SUCCESS	0
 # define EXIT_FAILURE	1
 
+# define WIDTH	900
+# define HEIGHT	900
+
 # define NORTH	data->texture.north
 # define SOUTH	data->texture.south
 # define WEST	data->texture.west
@@ -50,11 +53,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_line
-{
-	char			*line;
-	struct s_line	*next;
-}		t_line;
+//typedef struct s_draw
+//{
+//	void	*img;
+//	char	*addr;
+//	int		bits_per_pixel;
+//	int		line_length;
+//	int		endian;
+//}	t_draw;
 
 typedef struct s_pos
 {
@@ -62,27 +68,27 @@ typedef struct s_pos
 	double	y;
 }	t_pos;
 
-typedef struct s_draw
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_draw;
+	int		width;
+	int		height;
+}	t_image;
 
 typedef struct s_texture
 {
-	t_draw		north;
-	t_draw		south;
-	t_draw		west;
-	t_draw		east;
+	t_image		north;
+	t_image		south;
+	t_image		west;
+	t_image		east;
 	int			floor;
 	int			ceiling;
 }	t_texture;
 
 typedef struct s_data
 {
+	void		*mlx;
 	t_texture	texture;
 	char		**map;
 	char		face_dir;
@@ -99,6 +105,9 @@ void	init_data(t_data *data);
 bool	assign_data(t_data *data, char *path_map);
 bool	assign_textures(t_data *data, char **tab);
 bool	assign_map(int fd, t_list **list);
+bool	check_valid_textures(t_data *data);
+bool	open_file_img(t_data *data);
+//bool	check_valid_map(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */

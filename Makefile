@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/30 00:53:02 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/30 04:52:04 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_FILES =	main.c \
 			assign_data.c \
 			assign_textures.c \
 			create_map.c \
+			check_data.c \
 			free_data.c \
 			utils_parser.c \
 			tester/test_parsing.c \
