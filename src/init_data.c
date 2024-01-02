@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 12:11:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 15:54:15 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init_texture(t_texture *texture)
 	texture->ceiling = -1;
 }
 
-static void	init_hero(t_pos *hero)
+static void	init_hero(t_cor_db *hero)
 {
 	hero->x = -1;
 	hero->y = -1;

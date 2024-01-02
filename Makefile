@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
+#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2023/12/30 04:52:04 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/01/02 16:46:29 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET = \033[0m
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror -g -o3
+C_FLAGS = -Wall -Wextra -Werror -fsanitize=address #-g -o3 
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 
@@ -50,7 +50,14 @@ SRC_FILES =	main.c \
 			free_data.c \
 			utils_parser.c \
 			tester/test_parsing.c \
-
+			rc_utils.c \
+			rc_utils2.c \
+			rc_minimap.c \
+			rc_move.c \
+			rc_draw.c \
+			rc_init.c \
+			rc_loop.c \
+			rc_raycast.c
 OBJ_DIR = obj
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 

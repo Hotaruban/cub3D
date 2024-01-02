@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 00:18:41 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 16:30:36 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,14 @@ int	main(int ac, char **av)
 	We open the MiniLibX window
 	and the program will wait for the user to press a key.
 	*/
-	free_data(&data);
+//new add
+	data_init(&data);
+	draw_minimap(&data);
+	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
+	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
+	mlx_loop_hook(data.mlx, data_loop, &data);
+	mlx_loop(data.mlx);
+//new add end
+	// free_data(&data);
 	return (EXIT_SUCCESS);
 }
