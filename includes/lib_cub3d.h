@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 13:00:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 14:41:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@
 # define EXIT_SUCCESS	0
 # define EXIT_FAILURE	1
 
-# define WIDTH	900
-# define HEIGHT	900
-
 # define NORTH	data->texture.north
 # define SOUTH	data->texture.south
 # define WEST	data->texture.west
@@ -42,26 +39,20 @@
 # define HERO	data->hero
 
 # define MEM_ALLOC_FAILED	"Memory allocation failed!"
+# define FILE_FAILED		"Failed to open the file!"
 # define NB_ARGS			"Wrong number of arguments!"
 # define EXTENSION			"Wrong file extention!"
 # define FILE_NOT_FOUND		"File not found or not accessible!"
 # define TEXTURE_INVALID	"Texture data is not correct!"
 # define COLOR_INVALID		"Color data is not correct!"
+# define HERO_INVALID		"Hero position is not correct!"
+# define HERO_NOT_FOUND		"Hero position not found!"
 
 /* ************************************************************************** */
 /*                                                                            */
 /*                        STRUCTURES DEFINITIONS                              */
 /*                                                                            */
 /* ************************************************************************** */
-
-//typedef struct s_draw
-//{
-//	void	*img;
-//	char	*addr;
-//	int		bits_per_pixel;
-//	int		line_length;
-//	int		endian;
-//}	t_draw;
 
 typedef struct s_pos
 {
@@ -127,7 +118,6 @@ void	assign_variable(char **var, char *str);
 void	free_data(t_data *data);
 void	free_tab(char **tab);
 void	msg_error(char *msg);
-
 
 /* ************************************************************************** */
 /*                                                                            */
