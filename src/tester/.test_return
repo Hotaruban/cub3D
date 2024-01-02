@@ -4,8 +4,8 @@
 	data->texture->south = 		000<-
 	data->texture->west = 		000<-
 	data->texture->east = 		ÿÿÿ<-
-	data->texture->floor = 		255<-
-	data->texture->ceiling = 	657930<-
+	data->texture->floor = 		8224125<-
+	data->texture->ceiling = 	658145<-
 --- END of data->texture ---
 
 --- START of data->map ---
@@ -21,22 +21,22 @@
 
 --- START of Image ---
 --- NORTH ---
-	img = 		0x606000029cc0<-
+	img = 		0x606000029d20<-
 	addr = 		ÿÿÿ<-
 	width = 	64<-
 	height = 	64<-
 --- SOUTH ---
-	img = 		0x606000029d20<-
-	addr = 		000<-
-	width = 	64<-
-	height = 	64<-
---- WEST ---
 	img = 		0x606000029d80<-
 	addr = 		000<-
 	width = 	64<-
 	height = 	64<-
---- EAST ---
+--- WEST ---
 	img = 		0x606000029de0<-
+	addr = 		000<-
+	width = 	64<-
+	height = 	64<-
+--- EAST ---
+	img = 		0x606000029e40<-
 	addr = 		ÿÿÿ<-
 	width = 	64<-
 	height = 	64<-

@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 16:30:36 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 16:56:01 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	ft_memset(&data, 0, sizeof(data));
 	if (parse_user_arguments(ac, av[1]) == false)
 		return (EXIT_FAILURE);
 	init_data(&data);

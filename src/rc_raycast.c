@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 16:07:16 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 18:02:23 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	get_crutial_val(t_data *data, t_rays *rays)
 	else
 	{
 		rays->perp_dist = (rays->map.x - data->hero.x + (1 - rays->step.x) / 2) / rays->dir.x;
-		wall_hit_x_db = data->hero.y + rays->perp_dist * rays->dir.y;
+		wall_hit_x_db = data->hero.y + rays->perp_dist * rays->dir.x;
 		if (rays->dir.x > 0)
 			tex = E;
 		else
@@ -93,11 +93,15 @@ static void	get_crutial_val(t_data *data, t_rays *rays)
 
 static void	ray_cast(t_data *data, t_rays *rays, int x)
 {
-	rays->dir.x = cos(data->face_ang - FOV + x * rays->step_ang) + 1e-6;
-	rays->dir.y = sin(data->face_ang - FOV + x * rays->step_ang) + 1e-6;
+	double	ray_angle;
+
+	ray_angle = data->face_ang - FOV + x * rays->step_ang;
+	rays->dir.x = cos(ray_angle) + 1e-6;
+	rays->dir.y = -1 * sin(ray_angle) + 1e-6;
 	ray_cast_init(data, rays);
 	dda_algo(data, rays);
 	get_crutial_val(data, rays);
+	rays->perp_dist *= cos(ray_angle - data->face_ang);
 	rays->wall_h = (int)(HEIGHT / rays->perp_dist);
 	if (rays->wall_h < 1)
 		rays->wall_h = 1;
@@ -117,7 +121,7 @@ void	draw_rc(t_data *data)
 	{
 		ray_cast(data, &rays, x);
 		img_draw_wall(&data->rc, (t_cor_int){x, (HEIGHT - rays.wall_h) / 2},
-			(t_cor_int){rays.wall_hit_x, (HEIGHT + rays.wall_h) / 2}, data->texture.north);
+			(t_cor_int){rays.wall_hit_x, (HEIGHT + rays.wall_h) / 2}, NORTH);
 		x++;
 	}
 }

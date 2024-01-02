@@ -6,7 +6,7 @@
 #    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/02 16:46:29 by ychen2           ###   ########.fr        #
+#    Updated: 2024/01/02 17:03:12 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRC_FILES =	main.c \
 			rc_draw.c \
 			rc_init.c \
 			rc_loop.c \
-			rc_raycast.c
+			rc_raycast.c \
+			rc_raycast2.c
 OBJ_DIR = obj
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
