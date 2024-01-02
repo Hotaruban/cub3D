@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 13:06:43 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 14:41:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static bool	assign_hero(t_data *data)
 		y++;
 	}
 	if (data->face_dir == 'C')
-		return (msg_error("No hero"), false);
+		return (msg_error(HERO_NOT_FOUND), false);
 	if (data->map[(int)HERO.y][(int)HERO.x] != '0')
-		return (msg_error("Invalid hero position"), false);
+		return (msg_error(HERO_INVALID), false);
 	if (check_hero_pos(data) == false)
-		return (msg_error("Invalid hero position"), false);
+		return (msg_error(HERO_INVALID), false);
 	return (true);
 }
 
@@ -86,7 +86,7 @@ static bool	create_textures(t_data *data, int fd)
 		return (false);
 	if (open_file_img(data) == false)
 	{
-		msg_error("Failed to open the image file");
+		msg_error(FILE_FAILED);
 		return (false);
 	}
 	return (true);
@@ -118,7 +118,7 @@ bool	assign_data(t_data *data, char *path_map)
 	fd = open(path_map, O_RDONLY);
 	if (fd == -1)
 	{
-		msg_error("Failed to open the file");
+		msg_error(FILE_FAILED);
 		return (false);
 	}
 	data->mlx = mlx_init();
