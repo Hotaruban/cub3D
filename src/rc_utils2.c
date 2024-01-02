@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   rc_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 18:32:14 by ychen2           ###   ########.fr       */
+/*   Created: 2023/10/18 18:44:00 by ychen2            #+#    #+#             */
+/*   Updated: 2024/01/02 16:48:48 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
-static void	init_texture(t_texture *texture)
+void	init_image(t_image *img)
 {
-	texture->floor = -1;
-	texture->ceiling = -1;
-}
+	int	tmp[3];
 
-static void	init_hero(t_cor_db *hero)
-{
-	hero->x = -1;
-	hero->y = -1;
-}
-
-/*
-The function init_data initialize the data structure.
-*/
-
-void	init_data(t_data *data)
-{
-	data->mlx = NULL;
-	init_texture(&data->texture);
-	data->map = NULL;
-	init_hero(&data->hero);
-	data->face_dir = 'C';
+	img->addr = mlx_get_data_addr(img->img, tmp, tmp + 1, tmp + 2);
 }
