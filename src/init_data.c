@@ -6,26 +6,14 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 15:54:15 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 18:32:14 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
-static void	init_image(t_image *image)
-{
-	image->img = NULL;
-	image->addr = NULL;
-	image->width = 0;
-	image->height = 0;
-}
-
 static void	init_texture(t_texture *texture)
 {
-	init_image(&texture->north);
-	init_image(&texture->south);
-	init_image(&texture->west);
-	init_image(&texture->east);
 	texture->floor = -1;
 	texture->ceiling = -1;
 }
