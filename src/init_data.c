@@ -3,17 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 18:32:14 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:29:55 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
+static void	init_img_texture(t_image *img)
+{
+	img->addr = NULL;
+	img->img = NULL;
+	img->height = 0;
+	img->width = 0;
+}
+
 static void	init_texture(t_texture *texture)
 {
+	init_img_texture(&texture->north);
+	init_img_texture(&texture->south);
+	init_img_texture(&texture->west);
+	init_img_texture(&texture->east);
 	texture->floor = -1;
 	texture->ceiling = -1;
 }
@@ -34,5 +46,5 @@ void	init_data(t_data *data)
 	init_texture(&data->texture);
 	data->map = NULL;
 	init_hero(&data->hero);
-	data->face_dir = 'C';
+	data->face_ang = -1;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_raycast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 18:02:23 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:32:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	get_crutial_val(t_data *data, t_rays *rays)
 	double	wall_hit_x_db;
 	t_dir	tex;
 
+	(void)tex; // for compilation
 	if (rays->side_hit)
 	{
 		rays->perp_dist = (rays->map.y - data->hero.y + (1 - rays->step.y) / 2) / rays->dir.y;

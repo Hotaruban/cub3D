@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:32:18 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 12:03:41 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:32:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_map(t_data *data, FILE *p_fd)
 	}
 	else
 		fprintf(p_fd, "data->map = NULL\n");
-	fprintf(p_fd, "\tdata->face_dir = \t%c<-\n", data->face_dir);
+	fprintf(p_fd, "\tdata->face_ang = \t%f<-\n", data->face_ang);
 	fprintf(p_fd, "\tdata->hero.pos.x = \t%f<-\n", data->hero.x);
 	fprintf(p_fd, "\tdata->hero.pos.y = \t%f<-\n", data->hero.y);
 	fprintf(p_fd, "--- END of data->map ---\n");
