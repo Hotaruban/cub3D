@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:44:00 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 15:59:59 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:37:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	img_draw_pixel(t_draw *data, int x, int y, unsigned int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+
+/*
+In this function we should add the function to free all the data
+in file free_data.c
+you can also add the function msg_error_exit to display the error message
+and free the data before exit the program
+*/
 
 int	end_program(t_data *rc)
 {
