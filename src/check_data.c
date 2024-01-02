@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 13:10:36 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/02 16:51:25 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,22 @@ bool	open_file_img(t_data *data)
 			&NORTH.width, &NORTH.height);
 	if (NORTH.img == NULL)
 		return (false);
+	init_image(&NORTH);
 	SOUTH.img = mlx_xpm_file_to_image(data->mlx, SOUTH.addr,
 			&SOUTH.width, &SOUTH.height);
 	if (SOUTH.img == NULL)
 		return (false);
+	init_image(&SOUTH);
 	WEST.img = mlx_xpm_file_to_image(data->mlx, WEST.addr,
 			&WEST.width, &WEST.height);
 	if (WEST.img == NULL)
 		return (false);
+	init_image(&WEST);
 	EAST.img = mlx_xpm_file_to_image(data->mlx, EAST.addr,
 			&EAST.width, &EAST.height);
 	if (EAST.img == NULL)
 		return (false);
+	init_image(&EAST);
 	return (true);
 }
 
