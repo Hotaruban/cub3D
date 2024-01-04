@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 18:31:01 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:37:38 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	get_wall_hit_x(t_texture texture, t_rays *rays, double wall_hit_x_db
 	else if (tex == W)
 		rays->wall = texture.west;
 	rays->wall_hit_x = (wall_hit_x_db * rays->wall.width);
-	if ((rays->side_hit == 0 && rays->dir.x > 0) || (rays->side_hit == 1 && rays->dir.y < 0))
-		rays->wall_hit_x = rays->wall.width - wall_hit_x_db - 1;
+	// if ((rays->side_hit == 0 && rays->dir.x > 0) || (rays->side_hit == 1 && rays->dir.y < 0))
+	// 	rays->wall_hit_x = rays->wall.width - wall_hit_x_db - 1;
 }
 
 void	get_crutial_val(t_data *data, t_rays *rays)
