@@ -6,63 +6,98 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 23:24:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 01:19:31 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:23:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
-bool	check_in_square(char **map, int y, int x)
+/*
+The function find_location returns the y position of the character c.
+*/
+
+static int	find_location(char **map, char c)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (map[y] != NULL)
+	{
+		x = 0;
+		while (map[y][x] != '\0')
+		{
+			if (map[y][x] == c)
+				return (y);
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
+
+static char	**copy_map(int len_map, char **map)
+{
+	char	**map_copy;
+	int		i;
+
+	i = 0;
+	map_copy = (char **)malloc(sizeof(char *) * (len_map + 1));
+	if (!map_copy)
+		return (NULL);
+	while (i < len_map)
+	{
+		map_copy[i] = ft_strdup(map[i]);
+		i++;
+	}
+	map_copy[i] = NULL;
+	return (map_copy);
+}
+
+static void	flood_fill(char **map, int y, int x)
+{
+	if (map[y][x] == '1' || map[y][x] == '2')
+		return ;
+	if (map[y][x] == '0')
+		map[y][x] = '2';
+	if (map[y][x + 1] != '\0')
+		flood_fill(map, y, x + 1);
+	if (map[y][x - 1] != '\0')
+		flood_fill(map, y, x - 1);
+	if (map[y + 1][x] != '\0')
+		flood_fill(map, y + 1, x);
+	if (map[y - 1][x] != '\0')
+		flood_fill(map, y - 1, x);
+}
+
+static bool	check_map_correct(t_data *data, char **map)
 {
 	int	i;
 	int	j;
-	int	flag;
+	char	**map_copy;
 
-	i = -1;
-	j = -1;
-	flag = 0;
-	while (i < 2 && (map[y + i][x + j] == '1'
-		|| map[y + i][x + j] == '0'))
+	i = 0;
+	map_copy = copy_map(data->map_height, map);
+	if (!map_copy)
+		return (msg_error(MEM_ALLOC_FAILED), false);
+	flood_fill(map_copy, 1, find_location(map_copy, '0'));
+	while (i < data->map_height)
 	{
-		while (j < 2 && (map[y + i][x + j] == '1'
-			|| map[y + i][x + j] == '0'))
+		j = 0;
+		while (map_copy[i][j] != '\0')
 		{
-			printf("map Y[%d]X[%d] = %c\n", y + i, x + j, map[y + i][x + j]);
-			flag++;
+			if (map_copy[i][j] != '1' && map_copy[i][j] != '2'
+				&& map_copy[i][j] != ' ')
+			{
+				free_tab(map_copy);
+				return (msg_error(MAP_INVALID), false);
+			}
 			j++;
 		}
-		j = -1;
 		i++;
 	}
-	if (flag == 9)
-		return (true);
-	return (false);
+	return (free_tab(map_copy), true);
 }
-
-//static void	flood_fill()
-//{
-
-//}
-
-//static bool	check_map_correct(char **map)
-//{
-//	int	i;
-//	int	j;
-
-//	i = 0;
-//	while (map[i] != NULL)
-//	{
-//		j = 0;
-//		while (map[i][j] != '\0')
-//		{
-//			if (map[i][j] != '1' && map[i][j] != '2')
-//				return (false);
-//			j++;
-//		}
-//		i++;
-//	}
-//	return (true);
-//}
 
 bool	check_valid_map(t_data *data)
 {
@@ -84,6 +119,11 @@ bool	check_valid_map(t_data *data)
 			x++;
 		}
 		y++;
+	}
+	if (check_map_correct(data, data->map) == false)
+	{
+		printf("check_map_correct\n");
+		return (false);
 	}
 	return (true);
 }
