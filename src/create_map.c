@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 00:22:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:47:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	assign_direction_hero(t_data *data, char dir)
 {
 	if (dir == 'N')
-		data->face_ang = 3 * PI / 2;
-	else if (dir == 'S')
 		data->face_ang = PI / 2;
+	else if (dir == 'S')
+		data->face_ang = 3 * PI / 2;
 	else if (dir == 'W')
 		data->face_ang = PI;
 	else if (dir == 'E')
