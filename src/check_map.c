@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 23:24:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 03:23:42 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:30:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	flood_fill(char **map, int y, int x)
 
 static bool	check_map_correct(t_data *data, char **map)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**map_copy;
 
 	i = 0;

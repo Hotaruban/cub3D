@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 23:09:32 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:51:43 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	get_crutial_val(t_data *data, t_rays *rays)
 		rays->perp_dist = rays->side_dist.y - rays->delta.y;
 		wall_hit_x_db = data->hero.x + rays->perp_dist * rays->dir.x;
 		if (rays->dir.y > 0)
-			rays->wall = data->texture.north;
-		else
 			rays->wall = data->texture.south;
+		else
+			rays->wall = data->texture.north;
 	}
 	else
 	{
