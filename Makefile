@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
+#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/04 19:44:53 by ychen2           ###   ########.fr        #
+#    Updated: 2024/01/04 23:50:43 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET = \033[0m
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g -o3 
+C_FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g -o3
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 
@@ -47,6 +47,7 @@ SRC_FILES =	main.c \
 			assign_textures.c \
 			create_map.c \
 			check_data.c \
+			check_map.c \
 			free_data.c \
 			utils_parser.c \
 			tester/test_parsing.c \
@@ -83,7 +84,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/lib_cub3d.h
 	$(CC) $(C_FLAGS) -c $< -o $@
 
 # Target library build rule
-$(NAME): $(OBJECTS) $(LIBFT) $(MLX) 
+$(NAME): $(OBJECTS) $(LIBFT) $(MLX)
 	$(CC) $(C_FLAGS) $^ $(M_FLAGS) $(INCS) -o $(NAME)
 
 # Clean object files
