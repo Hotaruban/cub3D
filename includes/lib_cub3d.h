@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 22:48:08 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:13:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ typedef struct s_data
 	t_cor_db	hero;
 
 	/* key control */
-	t_keys			key;
+	t_keys		key;
 }	t_data;
 
 enum

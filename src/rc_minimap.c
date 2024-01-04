@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_minimap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:20:25 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 16:29:11 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:13:28 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,36 @@ static void	draw_hero(t_data *data)
 		(t_cor_int){data->hero.x * 20, data->hero.y * 20}, red);
 }
 
-// static	void	draw_view_line(t_data *data, double dir_x, double dir_y)
-// {
-// 	t_cor_db	end;
+/*
+static	void	draw_view_line(t_data *data, double dir_x, double dir_y)
+{
+	t_cor_db	end;
 
-// 	end.x = data->hero.x;
-// 	end.y = data->hero.y;
-// 	while (data->map[(int)end.y][(int)end.x] == '0')
-// 	{
-// 		end.x += dir_x;
-// 		end.y += dir_y;
-// 	}
-// 	img_draw_line(&data->mini_map,
-// 		(t_cor_int){data->hero.x * 20 + 4, data->hero.y * 20 + 4},
-// 		(t_cor_int){end.x * 20, end.y * 20}, data->texture.ceiling);
-// }
+	end.x = data->hero.x;
+	end.y = data->hero.y;
+	while (data->map[(int)end.y][(int)end.x] == '0')
+	{
+		end.x += dir_x;
+		end.y += dir_y;
+	}
+	img_draw_line(&data->mini_map,
+		(t_cor_int){data->hero.x * 20 + 4, data->hero.y * 20 + 4},
+		(t_cor_int){end.x * 20, end.y * 20}, data->texture.ceiling);
+}
+*/
 
+	/*
+	 unsigned int	char_color;
+	 char_color = mlx_get_color_value(data->mlx, 0xff0000);
+	*/
 void	draw_minimap(t_data *data)
 {
-	// unsigned int	char_color;
-
-	// char_color = mlx_get_color_value(data->mlx, 0xff0000);
 	draw_blocks(data);
 	draw_hero(data);
-	// draw_view_line(data, cos(data->face_ang + FOV), sin(data->face_ang + FOV));
-	// draw_view_line(data, cos(data->face_ang - FOV), sin(data->face_ang - FOV));
 }
+	/*
+	 draw_view_line(data, cos(data->face_ang + FOV),
+		sin(data->face_ang + FOV));
+	 draw_view_line(data, cos(data->face_ang - FOV),
+		sin(data->face_ang - FOV));
+	*/

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 19:31:32 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:11:32 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ static bool	create_map(t_data *data, int fd)
 	pass_list_to_tab(data, line_list);
 	if (assign_hero(data) == false)
 		return (false);
-	//if (check_valid_map(data) == false)
-	//	return (false);
 	return (true);
 }
+	/* if (check_valid_map(data) == false)
+		return (false); */
 
 bool	assign_data(t_data *data, char *path_map)
 {
