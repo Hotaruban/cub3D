@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 19:34:29 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:03:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,39 +53,13 @@ int	main(int ac, char **av)
 	init_data(&data);
 	if (assign_data(&data, av[1]) == false)
 	{
-		/*
-		TEST THE RETURN DATA OF THE PARSING
-		return the result in file: /tester/.test_parsing
-		*/
-		test_parsing(&data, "main - fail - main.c");
-		/*
-		END OF TEST
-		*/
 		free_data(&data);
 		return (EXIT_FAILURE);
 	}
-	/*
-	TEST THE RETURN DATA OF THE PARSING
-	return the result in file: /tester/.test_parsing
-	*/
-	test_parsing(&data, "main - succes - main.c");
-	/*
-	END OF TEST
-	*/
-	/*
-	From here:
-	The map must be correctly initialized.
-	We open the MiniLibX window
-	and the program will wait for the user to press a key.
-	*/
-//new add
 	data_init(&data);
-	// draw_minimap(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
 	mlx_loop_hook(data.mlx, data_loop, &data);
 	mlx_loop(data.mlx);
-//new add end
-	// free_data(&data);
 	return (EXIT_SUCCESS);
 }

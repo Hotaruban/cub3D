@@ -17,15 +17,15 @@ Jeremy Hurpy:
 		- [x] Test the checker
 	- [x] Check the access to the file map
 		- [x] Test the checker
-	- [ ] Check the file content
-		- [ ] Test the checker
-	- [ ] Check the access to the textures
-		- [ ] Test the checker
+	- [x] Check the file content
+		- [x] Test the checker
+	- [x] Check the access to the textures
+		- [x] Test the checker
 	- [ ] Check the map
 		- [ ] Test the checker
 
-	- [ ] 2d Array for map
-	- [ ] open the image in the struct of minilibx
+	- [x] 2d Array for map
+	- [x] open the image in the struct of minilibx
 
 Global:
 	- [ ] Norme

@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   rc_raycast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 21:14:43 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:09:21 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
 
+/*
+	 rays->delta.x = sqrt(1 + rays->dir.y * rays->dir.y
+		/ rays->dir.x / rays->dir.x);
+	 rays->delta.y = sqrt(1 + rays->dir.x * rays->dir.x
+		/ rays->dir.y / rays->dir.y);
+*/
+
 static void	ray_cast_init(t_data *data, t_rays *rays)
 {
 	rays->map.x = (int)data->hero.x;
 	rays->map.y = (int)data->hero.y;
-	// rays->delta.x = sqrt(1 + rays->dir.y * rays->dir.y / rays->dir.x / rays->dir.x);
-	// rays->delta.y = sqrt(1 + rays->dir.x * rays->dir.x / rays->dir.y / rays->dir.y);
 	rays->delta.x = fabs(1 / rays->dir.x);
 	rays->delta.y = fabs(1 / rays->dir.y);
 	if (rays->dir.x < 0)
@@ -89,7 +94,8 @@ void	draw_rc(t_data *data)
 	{
 		ray_cast(data, &rays, x);
 		img_draw_wall(&data->rc, (t_cor_int){x, (HEIGHT - rays.wall_h) / 2},
-			(t_cor_int){rays.wall_hit_x, (HEIGHT + rays.wall_h) / 2}, rays.wall);
+			(t_cor_int){rays.wall_hit_x,
+			(HEIGHT + rays.wall_h) / 2}, rays.wall);
 		x++;
 	}
 }

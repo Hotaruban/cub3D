@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 21:46:49 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:13:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,12 +159,12 @@ typedef struct s_data
 	t_draw		rc;
 
 	/* character state */
-	char		face_dir;
+	//char		face_dir;
 	double		face_ang;
 	t_cor_db	hero;
 
 	/* key control */
-	t_keys			key;
+	t_keys		key;
 }	t_data;
 
 enum

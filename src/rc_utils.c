@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:44:00 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 19:35:25 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:11:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,18 @@ void	img_draw_pixel(t_draw *data, int x, int y, unsigned int color)
 	*(unsigned int *)dst = color;
 }
 
+/*
+In this function we should add the function to free all the data
+in file free_data.c
+you can also add the function msg_error_exit to display the error message
+and free the data before exit the program
+*/
+
+	/*lx_destroy_window(rc->mlx, rc->win);*/
 int	end_program(t_data *rc)
 {
-	// mlx_destroy_window(rc->mlx, rc->win);
-	exit(0);(void)rc;
+	(void)rc;
+	exit(0);
 	return (0);
 }
 
@@ -63,9 +71,10 @@ int	key_release(int key, t_data *data)
 	return (0);
 }
 
+	/*mlx_put_image_to_window(data->mlx,
+		data->win, data->mini_map.img, 20, 20);*/
 void	put_imgs(t_data *data)
 {
 	mlx_clear_window(data->mlx, data->win);
 	mlx_put_image_to_window(data->mlx, data->win, data->rc.img, 0, 0);
-	// mlx_put_image_to_window(data->mlx, data->win, data->mini_map.img, 20, 20);
 }

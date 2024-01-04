@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:39:25 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 20:54:47 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:07:13 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@ void static	move(t_data *data, double angle)
 
 	dir.x = cos(angle);
 	dir.y = -1 * sin(angle);
-	if (data->map[(int)(data->hero.y + dir.y * SPEED)][(int)(d\
-ata->hero.x + dir.x * SPEED)] == '0')
+	if (data->map[(int)(data->hero.y + dir.y * SPEED)]
+		[(int)(data->hero.x + dir.x * SPEED)] == '0')
 	{
-		data->hero.x += dir.x *SPEED / 2;
-		data->hero.y += dir.y *SPEED / 2;
+		data->hero.x += dir.x * SPEED / 2;
+		data->hero.y += dir.y * SPEED / 2;
 	}
-	else if (data->map[(int)(data->hero.y)][(int)(data->hero.x + dir.x * SPEED)] == '0')
-		data->hero.x += dir.x *SPEED / 2;
-	else if (data->map[(int)(data->hero.y + dir.y * SPEED)][(int)(data->hero.x)] == '0')
-		data->hero.y += dir.y *SPEED / 2;
-}	
+	else if (data->map[(int)(data->hero.y)]
+		[(int)(data->hero.x + dir.x * SPEED)] == '0')
+		data->hero.x += dir.x * SPEED / 2;
+	else if (data->map[(int)(data->hero.y + dir.y * SPEED)]
+		[(int)(data->hero.x)] == '0')
+		data->hero.y += dir.y * SPEED / 2;
+}
 
 void	move_hero(t_data *data)
 {

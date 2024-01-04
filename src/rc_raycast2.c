@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_raycast2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 21:14:33 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:09:32 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void	get_wall_hit_x(t_rays *rays, double wall_hit_x_db)
 {
 	wall_hit_x_db -= floor(wall_hit_x_db);
 	rays->wall_hit_x = (wall_hit_x_db * rays->wall.width);
-	if ((!rays->side_hit && rays->dir.x > 0) || (rays->side_hit && rays->dir.y < 0))
+	if ((!rays->side_hit && rays->dir.x > 0)
+		|| (rays->side_hit && rays->dir.y < 0))
 		rays->wall_hit_x = rays->wall.width - rays->wall_hit_x - 1;
 }
 
