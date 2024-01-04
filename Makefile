@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/04 23:50:43 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/01/05 03:18:29 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC_FILES =	main.c \
 			check_map.c \
 			free_data.c \
 			utils_parser.c \
+			utils_check_map.c \
 			tester/test_parsing.c \
 			rc_utils.c \
 			rc_utils2.c \
