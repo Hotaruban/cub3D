@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 19:30:09 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 22:48:08 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef struct s_rays
 	t_cor_int	step;
 	t_cor_db	delta;
 	t_cor_int	map;
-	//If the wall hit is vertical side_hit = 0
+	/* If the wall hit is vertical side_hit = 0 */
 	bool		side_hit;
 	double		perp_dist;
 	int			wall_h;
