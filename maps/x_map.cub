@@ -1,0 +1,22 @@
+NO ./textures/wolfenstein/blue_stone.xpm
+SO ./textures/wolfenstein/eagle.xpm
+EA ./textures/wolfenstein/grey_stone.xpm
+WE ./textures/wolfenstein/mossy.xpm
+
+F 111,111,111
+C 222,222,222
+
+11111   11111
+10001   10001
+1000111110001
+1000000000001
+1110000000111
+  100111001
+  1001 1001
+  100111001
+1110000000111
+100000S000001
+1000111110001
+10001   10001
+10001   10001
+11111   11111

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 23:13:56 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 00:20:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define FILE_NOT_FOUND		"File not found or not accessible!"
 # define TEXTURE_INVALID	"Texture data is not correct!"
 # define COLOR_INVALID		"Color data is not correct!"
+# define MAP_INVALID		"Map data is not correct!"
 # define HERO_INVALID		"Hero position is not correct!"
 # define HERO_NOT_FOUND		"Hero position not found!"
 # define FAIL_WINDOW		"Fail to construct window."
@@ -156,6 +157,7 @@ typedef struct s_data
 	/* ray-casting */
 	t_texture	texture;
 	char		**map;
+	int			map_height;
 	t_draw		rc;
 
 	/* character state */
@@ -190,7 +192,7 @@ bool	assign_textures(t_data *data, char **tab);
 bool	assign_map(int fd, t_list **list);
 bool	check_valid_textures(t_data *data);
 bool	open_file_img(t_data *data);
-//bool	check_valid_map(t_data *data);
+bool	check_valid_map(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -204,6 +206,7 @@ bool	check_access_file(char *path);
 bool	check_valid_digit(char *str);
 bool	find_hero_line(t_data *data, int y);
 bool	check_hero_pos(t_data *data);
+bool	check_in_square(char **map, int x, int y);
 void	pass_list_to_tab(t_data *data, t_list *list);
 void	assign_variable(char **var, char *str);
 void	free_data(t_data *data);

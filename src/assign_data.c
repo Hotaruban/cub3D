@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 23:11:32 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 01:19:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ static bool	assign_hero(t_data *data)
 	}
 	if (data->face_ang == -1)
 		return (msg_error(HERO_NOT_FOUND), false);
-	if (data->map[(int)HERO.y][(int)HERO.x] != '0')
-		return (msg_error(HERO_INVALID), false);
-	if (check_hero_pos(data) == false)
+	if (data->map[(int)HERO.y][(int)HERO.x] != '0' || check_hero_pos(data) == false)
 		return (msg_error(HERO_INVALID), false);
 	return (true);
 }
@@ -106,10 +104,10 @@ static bool	create_map(t_data *data, int fd)
 	pass_list_to_tab(data, line_list);
 	if (assign_hero(data) == false)
 		return (false);
+	if (check_valid_map(data) == false)
+		return (false);
 	return (true);
 }
-	/* if (check_valid_map(data) == false)
-		return (false); */
 
 bool	assign_data(t_data *data, char *path_map)
 {

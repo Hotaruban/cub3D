@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 23:00:24 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 00:22:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_data(t_data *data)
 	data->mlx = NULL;
 	init_texture(&data->texture);
 	data->map = NULL;
+	data->map_height = 0;
 	init_hero(&data->hero);
 	data->face_ang = -1;
 }

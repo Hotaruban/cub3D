@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 16:51:25 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/05 01:04:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,9 @@ bool	open_file_img(t_data *data)
 
 bool	check_hero_pos(t_data *data)
 {
-	int	i;
-	int	j;
-	int	flag;
-
 	if (HERO.x == 0 || HERO.y == 0 || HERO.x == -1 || HERO.y == -1)
 		return (false);
-	i = -1;
-	j = -1;
-	flag = 0;
-	while (i < 2 && (data->map[(int)HERO.y + i][(int)HERO.x + j] == '1'
-		|| data->map[(int)HERO.y + i][(int)HERO.x + j] == '0'))
-	{
-		while (j < 2 && (data->map[(int)HERO.y + i][(int)HERO.x + j] == '1'
-			|| data->map[(int)HERO.y + i][(int)HERO.x + j] == '0'))
-		{
-			flag++;
-			j++;
-		}
-		j = -1;
-		i++;
-	}
-	if (flag != 9)
+	if (check_in_square(data->map, (int)HERO.y, (int)HERO.x) == false)
 		return (false);
 	return (true);
 }
@@ -93,8 +74,3 @@ bool	check_valid_textures(t_data *data)
 	}
 	return (true);
 }
-
-//bool	check_valid_map(t_data *data)
-//{
-
-//}
