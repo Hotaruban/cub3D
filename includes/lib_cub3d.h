@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 18:19:38 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:43:04 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,6 +258,6 @@ int		data_loop(t_data *data);
 void	draw_rc(t_data *data);
 
 // rc_raycast2.c
-void	get_crutial_val(t_data *data, t_rays *rays);
+void	get_crutial_val(t_data *data, t_rays *rays, double perp_angle);
 
 #endif

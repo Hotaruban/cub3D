@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 18:17:52 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 19:27:21 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ static void	ray_cast(t_data *data, t_rays *rays, int x)
 	rays->dir.y = -1 * sin(ray_angle) + 1e-6;
 	ray_cast_init(data, rays);
 	dda_algo(data, rays);
-	get_crutial_val(data, rays);
-	rays->perp_dist *= cos(ray_angle - data->face_ang);
+	get_crutial_val(data, rays, ray_angle - data->face_ang);
 	rays->wall_h = (int)(HEIGHT / rays->perp_dist);
 }
 
