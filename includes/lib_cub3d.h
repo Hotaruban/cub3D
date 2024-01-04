@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 16:47:48 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:14:53 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@
 # define HERO_NOT_FOUND		"Hero position not found!"
 
 //for window size
-# define HEIGHT 800
-# define WIDTH 800
+# define HEIGHT 900
+# define WIDTH 900
 // angles
 # define PI 3.14159265359
-# define FOV 0.655449 // 75/2 degrees
+# define FOV 0.4235987756 // half fov actually
+// move
+# define SPEED 0.05
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -81,6 +83,17 @@ typedef struct s_cor_db
 	double	y;
 }				t_cor_db;
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}	t_image;
+
 typedef struct s_rays
 {
 	double		step_ang;
@@ -94,6 +107,7 @@ typedef struct s_rays
 	double		perp_dist;
 	int			wall_h;
 	int			wall_hit_x;
+	t_image		wall;
 }				t_rays;
 
 typedef struct s_keys
@@ -105,14 +119,6 @@ typedef struct s_keys
 	bool	r;
 	bool	l;
 }				t_keys;
-
-typedef struct s_image
-{
-	void	*img;
-	char	*addr;
-	int		width;
-	int		height;
-}	t_image;
 
 typedef struct s_draw
 {
@@ -250,5 +256,8 @@ int		data_loop(t_data *data);
 
 // rc_raycast.c
 void	draw_rc(t_data *data);
+
+// rc_raycast2.c
+void	get_crutial_val(t_data *data, t_rays *rays);
 
 #endif

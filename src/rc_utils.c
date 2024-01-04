@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:44:00 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 15:59:59 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 19:35:25 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void	put_imgs(t_data *data)
 {
 	mlx_clear_window(data->mlx, data->win);
 	mlx_put_image_to_window(data->mlx, data->win, data->rc.img, 0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->mini_map.img, 20, 20);
+	// mlx_put_image_to_window(data->mlx, data->win, data->mini_map.img, 20, 20);
 }
