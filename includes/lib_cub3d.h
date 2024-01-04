@@ -51,18 +51,14 @@
 # define FAIL_MINIMAP		"Fail to construct minimap image."
 # define FAIL_RAYCASTING	"Fail to construct ray-casting image."
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                           CONSTANT DEFINITIONS                             */
-/*                                                                            */
-/* ************************************************************************** */
-
 /* for window size */
-# define HEIGHT 800
-# define WIDTH 800
-/* angles (FOV: 75/2 degrees) */
+# define HEIGHT 900
+# define WIDTH 900
+/* angles (half fov actually) */
 # define PI 3.14159265359
-# define FOV 0.655449
+# define FOV 0.4235987756
+/* move */
+# define SPEED 0.05
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -90,6 +86,17 @@ typedef struct s_cor_db
 	double	y;
 }	t_cor_db;
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}	t_image;
+
 typedef struct s_rays
 {
 	double		step_ang;
@@ -103,6 +110,7 @@ typedef struct s_rays
 	double		perp_dist;
 	int			wall_h;
 	int			wall_hit_x;
+	t_image		wall;
 }	t_rays;
 
 typedef struct s_keys
@@ -114,14 +122,6 @@ typedef struct s_keys
 	bool	r;
 	bool	l;
 }	t_keys;
-
-typedef struct s_image
-{
-	void	*img;
-	char	*addr;
-	int		width;
-	int		height;
-}	t_image;
 
 typedef struct s_draw
 {
@@ -146,24 +146,24 @@ typedef struct s_texture
 
 typedef struct s_data
 {
-	// mlx_use
+	/* mlx_use */
 	void		*mlx;
 	void		*win;
 
-	// mini_map
+	/* mini_map */
 	t_draw		mini_map;
 
-	// ray-casting
+	/* ray-casting */
 	t_texture	texture;
 	char		**map;
 	t_draw		rc;
 
-	// character state
+	/* character state */
 	//char		face_dir;
 	double		face_ang;
 	t_cor_db	hero;
 
-	// key control
+	/* key control */
 	t_keys			key;
 }	t_data;
 
@@ -250,6 +250,9 @@ int		data_loop(t_data *data);
 
 /* rc_raycast.c */
 void	draw_rc(t_data *data);
+
+/* rc_raycast2.c */
+void	get_crutial_val(t_data *data, t_rays *rays);
 
 /* ************************************************************************** */
 /*                                                                            */

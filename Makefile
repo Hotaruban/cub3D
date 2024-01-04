@@ -6,7 +6,7 @@
 #    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/02 17:03:12 by ychen2           ###   ########.fr        #
+#    Updated: 2024/01/04 19:44:53 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET = \033[0m
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror -fsanitize=address #-g -o3 
+C_FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g -o3 
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 
@@ -78,12 +78,12 @@ $(MLX):
 	@make -C $(MLX_DIR)
 
 # Object file build rule
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/lib_cub3d.h
 	@mkdir -p $(dir $@)
 	$(CC) $(C_FLAGS) -c $< -o $@
 
 # Target library build rule
-$(NAME): $(OBJECTS) $(LIBFT) $(MLX)
+$(NAME): $(OBJECTS) $(LIBFT) $(MLX) 
 	$(CC) $(C_FLAGS) $^ $(M_FLAGS) $(INCS) -o $(NAME)
 
 # Clean object files

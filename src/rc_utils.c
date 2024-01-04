@@ -74,5 +74,5 @@ void	put_imgs(t_data *data)
 {
 	mlx_clear_window(data->mlx, data->win);
 	mlx_put_image_to_window(data->mlx, data->win, data->rc.img, 0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->mini_map.img, 20, 20);
+	// mlx_put_image_to_window(data->mlx, data->win, data->mini_map.img, 20, 20);
 }

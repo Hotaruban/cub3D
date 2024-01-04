@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 19:29:55 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:48:10 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void	init_img_texture(t_image *img)
 
 static void	init_texture(t_texture *texture)
 {
-	init_img_texture(&texture->north);
-	init_img_texture(&texture->south);
-	init_img_texture(&texture->west);
-	init_img_texture(&texture->east);
+	ft_memset(&texture->north, 0, sizeof(t_image));
+	ft_memset(&texture->south, 0, sizeof(t_image));
+	ft_memset(&texture->west, 0, sizeof(t_image));
+	ft_memset(&texture->east, 0, sizeof(t_image));
 	texture->floor = -1;
 	texture->ceiling = -1;
 }
