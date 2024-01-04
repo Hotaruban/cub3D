@@ -6,19 +6,11 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 21:48:10 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 23:00:24 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
-
-static void	init_img_texture(t_image *img)
-{
-	img->addr = NULL;
-	img->img = NULL;
-	img->height = 0;
-	img->width = 0;
-}
 
 static void	init_texture(t_texture *texture)
 {
