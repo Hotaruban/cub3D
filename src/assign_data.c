@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 01:19:00 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:30:27 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static bool	assign_hero(t_data *data)
 	}
 	if (data->face_ang == -1)
 		return (msg_error(HERO_NOT_FOUND), false);
-	if (data->map[(int)HERO.y][(int)HERO.x] != '0' || check_hero_pos(data) == false)
+	if (data->map[(int)HERO.y][(int)HERO.x] != '0'
+		|| check_hero_pos(data) == false)
 		return (msg_error(HERO_INVALID), false);
 	return (true);
 }
