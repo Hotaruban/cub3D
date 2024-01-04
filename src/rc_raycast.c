@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 18:02:23 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:17:52 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,36 +61,6 @@ static void	dda_algo(t_data *data, t_rays *rays)
 	}
 }
 
-static void	get_crutial_val(t_data *data, t_rays *rays)
-{
-	double	wall_hit_x_db;
-	t_dir	tex;
-
-	if (rays->side_hit)
-	{
-		rays->perp_dist = (rays->map.y - data->hero.y + (1 - rays->step.y) / 2) / rays->dir.y;
-		wall_hit_x_db = data->hero.x + rays->perp_dist * rays->dir.x;
-		if (rays->dir.y > 0)
-			tex = S;
-		else
-			tex = N;
-	}
-	else
-	{
-		rays->perp_dist = (rays->map.x - data->hero.x + (1 - rays->step.x) / 2) / rays->dir.x;
-		wall_hit_x_db = data->hero.y + rays->perp_dist * rays->dir.x;
-		if (rays->dir.x > 0)
-			tex = E;
-		else
-			tex = W;
-	}
-	wall_hit_x_db -= floor(wall_hit_x_db);
-// get the correct texture and cal
-	rays->wall_hit_x = (wall_hit_x_db * 100);//100 -> texture width
-	if ((rays->side_hit == 0 && rays->dir.x > 0) || (rays->side_hit == 1 && rays->dir.y < 0))
-		rays->wall_hit_x = 100 - wall_hit_x_db - 1;
-}
-
 static void	ray_cast(t_data *data, t_rays *rays, int x)
 {
 	double	ray_angle;
@@ -103,10 +73,6 @@ static void	ray_cast(t_data *data, t_rays *rays, int x)
 	get_crutial_val(data, rays);
 	rays->perp_dist *= cos(ray_angle - data->face_ang);
 	rays->wall_h = (int)(HEIGHT / rays->perp_dist);
-	if (rays->wall_h < 1)
-		rays->wall_h = 1;
-	if (rays->wall_h > HEIGHT)
-		rays->wall_h = HEIGHT;
 }
 
 void	draw_rc(t_data *data)
@@ -121,7 +87,7 @@ void	draw_rc(t_data *data)
 	{
 		ray_cast(data, &rays, x);
 		img_draw_wall(&data->rc, (t_cor_int){x, (HEIGHT - rays.wall_h) / 2},
-			(t_cor_int){rays.wall_hit_x, (HEIGHT + rays.wall_h) / 2}, NORTH);
+			(t_cor_int){rays.wall_hit_x, (HEIGHT + rays.wall_h) / 2}, rays.wall);
 		x++;
 	}
 }

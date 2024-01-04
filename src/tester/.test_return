@@ -1,9 +1,9 @@
 
 --- START of data->texture main - succes - main.c ---
-	data->texture->north = 		ÿÿÿ<-
-	data->texture->south = 		000<-
-	data->texture->west = 		000<-
-	data->texture->east = 		ÿÿÿ<-
+	data->texture->north = 		<-
+	data->texture->south = 		‘˜›<-
+	data->texture->west = 			*<-
+	data->texture->east = 		teU<-
 	data->texture->floor = 		8224125<-
 	data->texture->ceiling = 	658145<-
 --- END of data->texture ---
@@ -22,22 +22,22 @@
 --- START of Image ---
 --- NORTH ---
 	img = 		0x606000029d20<-
-	addr = 		ÿÿÿ<-
+	addr = 		<-
 	width = 	64<-
 	height = 	64<-
 --- SOUTH ---
 	img = 		0x606000029d80<-
-	addr = 		000<-
+	addr = 		‘˜›<-
 	width = 	64<-
 	height = 	64<-
 --- WEST ---
 	img = 		0x606000029de0<-
-	addr = 		000<-
+	addr = 			*<-
 	width = 	64<-
 	height = 	64<-
 --- EAST ---
 	img = 		0x606000029e40<-
-	addr = 		ÿÿÿ<-
+	addr = 		teU<-
 	width = 	64<-
 	height = 	64<-
 --- END of Image ---

@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:51:49 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 16:06:57 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:20:09 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ void	img_draw_background(t_data *data)
 	}
 }
 
+static int	get_pixel_color(t_image *img, int x, int y)
+{
+	void	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	return (*(int *)dst);
+}
+
 void	img_draw_wall(
 	t_draw *target, t_cor_int pos, t_cor_int end, t_image wall)
 {
@@ -75,11 +83,19 @@ void	img_draw_wall(
 	int				line_h;
 
 	line_h = end.y - pos.y;
+	if (pos.y < 0)
+		pos.y = 0;
+	if (end.y >= HEIGHT)
+		end.y = HEIGHT - 1;
 	while (pos.y < end.y)
 	{
-		d = pos.y * 256 - HEIGHT * 128 + line_h * 128;
-		tex_y = ((d * wall.width) / line_h) / 256;
-		color = wall.addr[wall.width * tex_y + end.x];
+		d = (pos.y - HEIGHT / 2 + line_h / 2) * wall.height;
+		tex_y = d / line_h;
+		if (tex_y >= wall.height)
+			tex_y = wall.height - 1;
+		if (tex_y < 0)
+			tex_y = 0;
+		color = get_pixel_color(&wall, end.x, tex_y);
 		img_draw_pixel(target, pos.x, pos.y, color);
 		pos.y++;
 	}
