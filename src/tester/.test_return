@@ -23,22 +23,22 @@
 
 --- START of Image ---
 --- NORTH ---
-	img = 		0x606000029cc0<-
+	img = 		0x7ff4e0c17020<-
 	addr = 		ÿÿÿ<-
 	width = 	64<-
 	height = 	64<-
 --- SOUTH ---
-	img = 		0x606000029d20<-
+	img = 		0x7ff4e0c34ae0<-
 	addr = 		000<-
 	width = 	64<-
 	height = 	64<-
 --- WEST ---
-	img = 		0x606000029d80<-
+	img = 		0x7ff4e0c34b20<-
 	addr = 		000<-
 	width = 	64<-
 	height = 	64<-
 --- EAST ---
-	img = 		0x606000029de0<-
+	img = 		0x7ff4e0c34f30<-
 	addr = 		ÿÿÿ<-
 	width = 	64<-
 	height = 	64<-

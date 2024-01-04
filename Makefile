@@ -6,7 +6,7 @@
 #    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/04 15:52:50 by ychen2           ###   ########.fr        #
+#    Updated: 2024/01/04 19:44:53 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET = \033[0m
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror -fsanitize=address #-g -o3 
+C_FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g -o3 
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 

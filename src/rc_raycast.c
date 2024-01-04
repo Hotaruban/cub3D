@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 19:27:21 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:14:43 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	ray_cast_init(t_data *data, t_rays *rays)
 {
 	rays->map.x = (int)data->hero.x;
 	rays->map.y = (int)data->hero.y;
+	// rays->delta.x = sqrt(1 + rays->dir.y * rays->dir.y / rays->dir.x / rays->dir.x);
+	// rays->delta.y = sqrt(1 + rays->dir.x * rays->dir.x / rays->dir.y / rays->dir.y);
 	rays->delta.x = fabs(1 / rays->dir.x);
 	rays->delta.y = fabs(1 / rays->dir.y);
 	if (rays->dir.x < 0)
@@ -66,11 +68,12 @@ static void	ray_cast(t_data *data, t_rays *rays, int x)
 	double	ray_angle;
 
 	ray_angle = data->face_ang - FOV + x * rays->step_ang;
-	rays->dir.x = cos(ray_angle) + 1e-6;
-	rays->dir.y = -1 * sin(ray_angle) + 1e-6;
+	rays->dir.x = cos(ray_angle);
+	rays->dir.y = -1 * sin(ray_angle);
 	ray_cast_init(data, rays);
 	dda_algo(data, rays);
-	get_crutial_val(data, rays, ray_angle - data->face_ang);
+	get_crutial_val(data, rays);
+	rays->perp_dist *= cos(ray_angle - data->face_ang);
 	rays->wall_h = (int)(HEIGHT / rays->perp_dist);
 }
 

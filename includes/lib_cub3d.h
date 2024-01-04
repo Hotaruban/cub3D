@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 18:43:04 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:14:53 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@
 # define HERO_NOT_FOUND		"Hero position not found!"
 
 //for window size
-# define HEIGHT 800
-# define WIDTH 800
+# define HEIGHT 900
+# define WIDTH 900
 // angles
 # define PI 3.14159265359
-# define FOV 0.655449 // 75/2 degrees
+# define FOV 0.4235987756 // half fov actually
 // move
 # define SPEED 0.05
 
@@ -258,6 +258,6 @@ int		data_loop(t_data *data);
 void	draw_rc(t_data *data);
 
 // rc_raycast2.c
-void	get_crutial_val(t_data *data, t_rays *rays, double perp_angle);
+void	get_crutial_val(t_data *data, t_rays *rays);
 
 #endif

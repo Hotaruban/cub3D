@@ -6,7 +6,7 @@
 /*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 19:37:42 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:14:33 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ static void	get_wall_hit_x(t_rays *rays, double wall_hit_x_db)
 		rays->wall_hit_x = rays->wall.width - rays->wall_hit_x - 1;
 }
 
-void	get_crutial_val(t_data *data, t_rays *rays, double perp_angle)
+void	get_crutial_val(t_data *data, t_rays *rays)
 {
 	double	wall_hit_x_db;
 
 	if (rays->side_hit)
 	{
-		rays->perp_dist = (rays->map.y - data->hero.y + (1 - rays->step.y) / 2);
-		rays->perp_dist *= cos(perp_angle) / rays->dir.y;
+		rays->perp_dist = rays->side_dist.y - rays->delta.y;
 		wall_hit_x_db = data->hero.x + rays->perp_dist * rays->dir.x;
 		if (rays->dir.y > 0)
 			rays->wall = data->texture.north;
@@ -36,8 +35,7 @@ void	get_crutial_val(t_data *data, t_rays *rays, double perp_angle)
 	}
 	else
 	{
-		rays->perp_dist = (rays->map.x - data->hero.x + (1 - rays->step.x) / 2);
-		rays->perp_dist *= cos(perp_angle) / rays->dir.x;
+		rays->perp_dist = rays->side_dist.x - rays->delta.x;
 		wall_hit_x_db = data->hero.y + rays->perp_dist * rays->dir.y;
 		if (rays->dir.x > 0)
 			rays->wall = data->texture.east;

@@ -5,8 +5,9 @@
 # **************************************************************************** #
 
 Yu Chen:
-	- [ ] modified control logic (with collision)
-	- [ ] modified draw_wall logic to draw texture properly
+	- [x] modified control logic (with collision)
+	- [x] modified draw_wall logic to draw texture properly
+	- [ ] if facing a wall when first spawn should give a offset.
 
 
 Jeremy Hurpy:
