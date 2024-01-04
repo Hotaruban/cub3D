@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/02 18:32:14 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:48:10 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static void	init_texture(t_texture *texture)
 {
+	ft_memset(&texture->north, 0, sizeof(t_image));
+	ft_memset(&texture->south, 0, sizeof(t_image));
+	ft_memset(&texture->west, 0, sizeof(t_image));
+	ft_memset(&texture->east, 0, sizeof(t_image));
 	texture->floor = -1;
 	texture->ceiling = -1;
 }
@@ -34,5 +38,5 @@ void	init_data(t_data *data)
 	init_texture(&data->texture);
 	data->map = NULL;
 	init_hero(&data->hero);
-	data->face_dir = 'C';
+	data->face_ang = -1;
 }

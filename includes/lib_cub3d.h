@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_cub3d.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/04 21:14:53 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:46:49 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,17 @@
 # define COLOR_INVALID		"Color data is not correct!"
 # define HERO_INVALID		"Hero position is not correct!"
 # define HERO_NOT_FOUND		"Hero position not found!"
+# define FAIL_WINDOW		"Fail to construct window."
+# define FAIL_MINIMAP		"Fail to construct minimap image."
+# define FAIL_RAYCASTING	"Fail to construct ray-casting image."
 
-//for window size
+/* for window size */
 # define HEIGHT 900
 # define WIDTH 900
-// angles
+/* angles (half fov actually) */
 # define PI 3.14159265359
-# define FOV 0.4235987756 // half fov actually
-// move
+# define FOV 0.4235987756
+/* move */
 # define SPEED 0.05
 
 /* ************************************************************************** */
@@ -69,19 +72,19 @@ typedef enum e_dir
 	E,
 	S,
 	W
-}				t_dir;
+}	t_dir;
 
 typedef struct s_cor_int
 {
 	int	x;
 	int	y;
-}				t_cor_int;
+}	t_cor_int;
 
 typedef struct s_cor_db
 {
 	double	x;
 	double	y;
-}				t_cor_db;
+}	t_cor_db;
 
 typedef struct s_image
 {
@@ -102,13 +105,13 @@ typedef struct s_rays
 	t_cor_int	step;
 	t_cor_db	delta;
 	t_cor_int	map;
-	//If the wall hit is vertical side_hit = 0
+	/* If the wall hit is vertical side_hit = 0 */
 	bool		side_hit;
 	double		perp_dist;
 	int			wall_h;
 	int			wall_hit_x;
 	t_image		wall;
-}				t_rays;
+}	t_rays;
 
 typedef struct s_keys
 {
@@ -118,7 +121,7 @@ typedef struct s_keys
 	bool	d;
 	bool	r;
 	bool	l;
-}				t_keys;
+}	t_keys;
 
 typedef struct s_draw
 {
@@ -129,7 +132,7 @@ typedef struct s_draw
 	int		endian;
 	int		tex_h;
 	int		tex_w;
-}				t_draw;
+}	t_draw;
 
 typedef struct s_texture
 {
@@ -143,24 +146,24 @@ typedef struct s_texture
 
 typedef struct s_data
 {
-	// mlx_use
+	/* mlx_use */
 	void		*mlx;
 	void		*win;
-	
-	// mini_map
+
+	/* mini_map */
 	t_draw		mini_map;
-	
-	// ray-casting
+
+	/* ray-casting */
 	t_texture	texture;
 	char		**map;
 	t_draw		rc;
 
-	// character state
+	/* character state */
 	char		face_dir;
 	double		face_ang;
 	t_cor_db	hero;
-	
-	// key control
+
+	/* key control */
 	t_keys			key;
 }	t_data;
 
@@ -209,37 +212,28 @@ void	msg_error(char *msg);
 
 /* ************************************************************************** */
 /*                                                                            */
-/*                        TESTER FUNCTIONS                                    */
-/*                                                                            */
-/* ************************************************************************** */
-
-void	test_parsing(t_data *data, char *str);
-void	print_list(t_list *list);
-
-/* ************************************************************************** */
-/*                                                                            */
 /*                      RAYCASTING FUNCTIONS                                  */
 /*                                                                            */
 /* ************************************************************************** */
 
-// rc_utils.c
+/* rc_utils.c */
 int		end_program(t_data *rc);
 int		key_press(int key, t_data *data);
 int		key_release(int key, t_data *data);
 void	img_draw_pixel(t_draw *data, int x, int y, unsigned int color);
 void	put_imgs(t_data *data);
 
-// rc_utils.c
+/* rc_utils.c */
 void	init_image(t_image *img);
 
-//rc_init.c
+/* rc_init.c */
 void	data_init(t_data *data);
 void	init_draw(void *mlx, t_draw *tar, int width, int height);
 
-// rc_move.c
+/* rc_move.c */
 void	move_hero(t_data *data);
 
-// rc_draw.c
+/* rc_draw.c */
 void	img_draw_unit(
 			t_draw *target, int unit_size, t_cor_int pos, unsigned int color);
 void	img_draw_line(
@@ -248,16 +242,25 @@ void	img_draw_background(t_data *data);
 void	img_draw_wall(
 			t_draw *target, t_cor_int pos, t_cor_int end, t_image wall);
 
-// rc_minimap.c
+/* rc_minimap.c */
 void	draw_minimap(t_data *data);
 
-// rc_loop.c
+/* rc_loop.c */
 int		data_loop(t_data *data);
 
-// rc_raycast.c
+/* rc_raycast.c */
 void	draw_rc(t_data *data);
 
-// rc_raycast2.c
+/* rc_raycast2.c */
 void	get_crutial_val(t_data *data, t_rays *rays);
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                        TESTER FUNCTIONS                                    */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	test_parsing(t_data *data, char *str);
+void	print_list(t_list *list);
 
 #endif

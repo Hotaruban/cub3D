@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:38:18 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/02 16:26:43 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:53:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@ static void	data_malloc(t_data *data)
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "data3D");
 	if (!data->win)
 	{
-		ft_putstr_fd("Fail to construct window.\n", 2);
-		exit(1);
+		msg_error(FAIL_WINDOW);
+		exit(EXIT_FAILURE);
 	}
 	init_draw(data->mlx, &data->mini_map, 100, 100);
 	if (!data->mini_map.img)
 	{
-		ft_putstr_fd("Fail to construct minimap image.\n", 2);
-		exit(1);
+		msg_error(FAIL_MINIMAP);
+		exit(EXIT_FAILURE);
 	}
 	init_draw(data->mlx, &data->rc, WIDTH, HEIGHT);
 	if (!data->mini_map.img)
 	{
-		ft_putstr_fd("Fail to construct ray-casting image.\n", 2);
-		exit(1);
+		msg_error(FAIL_RAYCASTING);
+		exit(EXIT_FAILURE);
 	}
 }
 
 void	data_init(t_data *data)
 {
 	data_malloc(data);
-	data->face_ang = PI / 2;
+	//data->face_ang = PI / 2;
 	mlx_hook(data->win, ON_DESTROY, 0, end_program, data);
 }
 

@@ -6,11 +6,23 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 13:04:48 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/04 21:49:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
+
+static void	assign_direction_hero(t_data *data, char dir)
+{
+	if (dir == 'N')
+		data->face_ang = PI / 2;
+	else if (dir == 'S')
+		data->face_ang = 3 * PI / 2;
+	else if (dir == 'W')
+		data->face_ang = PI;
+	else if (dir == 'E')
+		data->face_ang = 2 * PI;
+}
 
 /*
 The function find_hero_line find the line where the hero is and assign
@@ -31,7 +43,7 @@ bool	find_hero_line(t_data *data, int y)
 		{
 			HERO.x = (double)x;
 			HERO.y = (double)y;
-			data->face_dir = data->map[y][x];
+			assign_direction_hero(data, data->map[y][x]);
 			data->map[y][x] = '0';
 			hero_found = true;
 		}
