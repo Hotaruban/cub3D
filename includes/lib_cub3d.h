@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 00:20:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 13:40:05 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@
 # define FAIL_RAYCASTING	"Fail to construct ray-casting image."
 
 /* for window size */
-# define HEIGHT 900
-# define WIDTH 900
+# define HEIGHT 768
+# define WIDTH 1024
 /* angles (half fov actually) */
 # define PI 3.14159265359
 # define FOV 0.4235987756
