@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:13:35 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 03:14:47 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/05 13:44:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	check_in_square(char **map, int y, int x)
 	i = -1;
 	j = -1;
 	flag = 0;
-	if (y == 0 || x == 0)
+	if (y == 0 || x == 0 || !map[y + 1] || !map[y][x + 1])
 		return (false);
 	while (i < 2 && (map[y + i][x + j] == '1'
 		|| map[y + i][x + j] == '0'))
