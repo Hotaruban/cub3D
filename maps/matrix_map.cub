@@ -1,7 +1,7 @@
 NO ./textures/matrix.xpm
 SO ./textures/matrix.xpm
 WE ./textures/matrix.xpm
-EA ./textures/matrix.xpm
+EA ./textures/img/wall.xpm
 
 F 0,0,0
 C 0,0,0
@@ -11,5 +11,5 @@ C 0,0,0
 1001001
 1011101
 1001001
-10000N1
+1W00001
 1111111

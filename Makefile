@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
+#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/05 03:18:29 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/01/06 19:58:23 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ fclean: clean
 	@$(RM) $(LIBFT_DIR)/libft.a
 	@$(RM) $(MLX_DIR)/libmlx.a
 	@make fclean -C $(LIBFT_DIR)
-	@rm ./src/tester/.test_return
+	#@rm ./src/tester/.test_return
 
 # Clean and rebuild the target library
 re: fclean all

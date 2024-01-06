@@ -1,7 +1,7 @@
 NO ./textures/img/wall.xpm
-SO ./textures/img/wall.xpm
-WE ./textures/img/wall.xpm
-EA ./textures/img/wall.xpm
+SO ./textures/img/wall2.xpm
+WE ./textures/img/wall3.xpm
+EA ./textures/img/wall4.xpm
 
 F 111,111,111
 C 222,243,255
