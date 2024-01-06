@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:39:25 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 23:07:13 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/06 19:50:22 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void static	move(t_data *data, double angle)
 {
 	t_cor_db	dir;
 
-	dir.x = cos(angle);
+	dir.x = -1 * cos(angle);
 	dir.y = -1 * sin(angle);
 	if (data->map[(int)(data->hero.y + dir.y * SPEED)]
 		[(int)(data->hero.x + dir.x * SPEED)] == '0')

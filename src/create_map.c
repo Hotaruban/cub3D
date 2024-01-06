@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 03:47:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/06 20:01:48 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	assign_direction_hero(t_data *data, char dir)
 	else if (dir == 'S')
 		data->face_ang = 3 * PI / 2;
 	else if (dir == 'W')
-		data->face_ang = PI;
+		data->face_ang = 0;
 	else if (dir == 'E')
-		data->face_ang = 2 * PI;
+		data->face_ang = PI;
 }
 
 /*
@@ -110,7 +110,7 @@ void	pass_list_to_tab(t_data *data, t_list *list)
 	t_list	*tmp;
 
 	data->map_height = ft_lstsize(list);
-	data->map = (char **)malloc(sizeof(char *) * data->map_height + 1);
+	data->map = (char **)malloc(sizeof(char *) * (data->map_height + 1));
 	i = 0;
 	while (list != NULL)
 	{

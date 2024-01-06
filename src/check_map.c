@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 23:24:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 03:30:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/06 19:26:04 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	find_location(char **map, char c)
 		while (map[y][x] != '\0')
 		{
 			if (map[y][x] == c)
-				return (y);
+				return (x);
 			x++;
 		}
 		y++;
@@ -122,7 +122,6 @@ bool	check_valid_map(t_data *data)
 	}
 	if (check_map_correct(data, data->map) == false)
 	{
-		printf("check_map_correct\n");
 		return (false);
 	}
 	return (true);

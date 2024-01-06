@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rc_raycast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 23:09:21 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/06 19:51:30 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
-
-/*
-	 rays->delta.x = sqrt(1 + rays->dir.y * rays->dir.y
-		/ rays->dir.x / rays->dir.x);
-	 rays->delta.y = sqrt(1 + rays->dir.x * rays->dir.x
-		/ rays->dir.y / rays->dir.y);
-*/
 
 static void	ray_cast_init(t_data *data, t_rays *rays)
 {
@@ -73,7 +66,7 @@ static void	ray_cast(t_data *data, t_rays *rays, int x)
 	double	ray_angle;
 
 	ray_angle = data->face_ang - FOV + x * rays->step_ang;
-	rays->dir.x = cos(ray_angle);
+	rays->dir.x = -1 * cos(ray_angle);
 	rays->dir.y = -1 * sin(ray_angle);
 	ray_cast_init(data, rays);
 	dda_algo(data, rays);
