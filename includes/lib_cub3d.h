@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_cub3d.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/06 19:13:25 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:16:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@
 /* for window size */
 # define HEIGHT 768
 # define WIDTH 1024
+
 /* angles (half fov actually) */
 # define PI 3.14159265359
 # define FOV 0.4235987756
+
 /* move */
 # define SPEED 0.05
 
@@ -106,7 +108,6 @@ typedef struct s_rays
 	t_cor_int	step;
 	t_cor_db	delta;
 	t_cor_int	map;
-	/* If the wall hit is vertical side_hit = 0 */
 	bool		side_hit;
 	double		perp_dist;
 	int			wall_h;
@@ -147,25 +148,15 @@ typedef struct s_texture
 
 typedef struct s_data
 {
-	/* mlx_use */
 	void		*mlx;
 	void		*win;
-
-	/* mini_map */
 	t_draw		mini_map;
-
-	/* ray-casting */
 	t_texture	texture;
 	char		**map;
 	int			map_height;
 	t_draw		rc;
-
-	/* character state */
-	//char		face_dir;
 	double		face_ang;
 	t_cor_db	hero;
-
-	/* key control */
 	t_keys		key;
 }	t_data;
 
@@ -256,14 +247,5 @@ void	draw_rc(t_data *data);
 
 /* rc_raycast2.c */
 void	get_crutial_val(t_data *data, t_rays *rays);
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                        TESTER FUNCTIONS                                    */
-/*                                                                            */
-/* ************************************************************************** */
-
-void	test_parsing(t_data *data, char *str);
-void	print_list(t_list *list);
 
 #endif

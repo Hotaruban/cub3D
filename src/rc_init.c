@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rc_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:38:18 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/06 19:53:57 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:24:06 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
-
-/* are you sure you want to exit if failed ?
-We should free memory before no ? */
 
 static void	data_malloc(t_data *data)
 {
@@ -56,4 +53,3 @@ void	init_draw(void *mlx, t_draw *tar, int width, int height)
 	tar->tex_h = height;
 	tar->tex_w = width;
 }
-	/* no need, for test */

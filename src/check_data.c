@@ -6,11 +6,16 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 01:04:42 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:19:59 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
+
+/*
+The function open_file_img opens the texture files and stores the images
+in the corresponding variables.
+*/
 
 bool	open_file_img(t_data *data)
 {
@@ -37,6 +42,11 @@ bool	open_file_img(t_data *data)
 	return (true);
 }
 
+/*
+The function check_hero_pos checks if the hero position is valid.
+Check if it is in the map and not in a wall.
+*/
+
 bool	check_hero_pos(t_data *data)
 {
 	if (HERO.x == 0 || HERO.y == 0 || HERO.x == -1 || HERO.y == -1)
@@ -45,6 +55,11 @@ bool	check_hero_pos(t_data *data)
 		return (false);
 	return (true);
 }
+
+/*
+The function check_valid_textures checks if the textures are valid.
+Check if the file extension is .xpm and if the file is accessible.
+*/
 
 bool	check_valid_textures(t_data *data)
 {

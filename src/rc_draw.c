@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:51:49 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 18:20:09 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:23:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ void	img_draw_unit(
 		del.y++;
 	}
 }
-
-// void	img_draw_line(
-// 	t_draw *target, t_cor_int cur, t_cor_int end, unsigned int color)
-// {
-// 	int dx = abs(end.x - cur.x), sx = cur.x < end.x ? 1 : -1;
-// 	int dy = -abs(end.y - cur.y), sy = cur.y < end.y ? 1 : -1;
-// 	int err = dx + dy, e2; /* error value e_xy */
-// 	while (1)
-// 	{
-// 		img_draw_unit(target, 2, cur, color);
-// 		if (cur.x == end.x && cur.y == end.y) break;
-// 		e2 = 2 * err;
-// 		if (e2 >= dy) { err += dy; cur.x += sx; } /* e_xy+e_x > 0 */
-// 		if (e2 <= dx) { err += dx; cur.y += sy; } /* e_xy+e_y < 0 */
-// 	}
-// }
 
 void	img_draw_background(t_data *data)
 {

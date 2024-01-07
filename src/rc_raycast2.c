@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_raycast2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:29:19 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/06 19:53:03 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:27:33 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ void	get_crutial_val(t_data *data, t_rays *rays)
 		rays->perp_dist = rays->side_dist.y - rays->delta.y;
 		wall_hit_x_db = data->hero.x + rays->perp_dist * rays->dir.x;
 		if (rays->dir.y > 0)
-			rays->wall = data->texture.north;
-		else
 			rays->wall = data->texture.south;
+		else
+			rays->wall = data->texture.north;
 	}
 	else
 	{
 		rays->perp_dist = rays->side_dist.x - rays->delta.x;
 		wall_hit_x_db = data->hero.y + rays->perp_dist * rays->dir.y;
 		if (rays->dir.x > 0)
-			rays->wall = data->texture.west;
-		else
 			rays->wall = data->texture.east;
+		else
+			rays->wall = data->texture.west;
 	}
 	get_wall_hit_x(rays, wall_hit_x_db);
 }
