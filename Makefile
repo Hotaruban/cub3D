@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
+#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/06 19:58:23 by ychen2           ###   ########.fr        #
+#    Updated: 2024/01/07 16:17:23 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,6 @@ SRC_FILES =	main.c \
 			free_data.c \
 			utils_parser.c \
 			utils_check_map.c \
-			tester/test_parsing.c \
 			rc_utils.c \
 			rc_utils2.c \
 			rc_minimap.c \
@@ -101,7 +100,6 @@ fclean: clean
 	@$(RM) $(LIBFT_DIR)/libft.a
 	@$(RM) $(MLX_DIR)/libmlx.a
 	@make fclean -C $(LIBFT_DIR)
-	#@rm ./src/tester/.test_return
 
 # Clean and rebuild the target library
 re: fclean all

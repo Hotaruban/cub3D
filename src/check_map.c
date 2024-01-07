@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 23:24:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/06 19:26:04 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:21:58 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ static int	find_location(char **map, char c)
 	return (0);
 }
 
+/*
+The function copy_map copies the map in a new variable.
+The map copied will be used to check if the map is valid.
+*/
+
 static char	**copy_map(int len_map, char **map)
 {
 	char	**map_copy;
@@ -54,6 +59,11 @@ static char	**copy_map(int len_map, char **map)
 	return (map_copy);
 }
 
+/*
+The function flood_fill fills the map with the character '2'.
+This function is used to check if the map is closed.
+*/
+
 static void	flood_fill(char **map, int y, int x)
 {
 	if (map[y][x] == '1' || map[y][x] == '2')
@@ -69,6 +79,11 @@ static void	flood_fill(char **map, int y, int x)
 	if (map[y - 1][x] != '\0')
 		flood_fill(map, y - 1, x);
 }
+
+/*
+The function check_map_correct checks if the map is valid.
+Check if the map is closed and if there is no character other than '1', '2'
+*/
 
 static bool	check_map_correct(t_data *data, char **map)
 {
@@ -98,6 +113,12 @@ static bool	check_map_correct(t_data *data, char **map)
 	}
 	return (free_tab(map_copy), true);
 }
+
+/*
+The function check_valid_map checks if the map is valid.
+Check if the map is closed and if there is no character other than '1', '2'
+Check if the the floor is closed by walls.
+*/
 
 bool	check_valid_map(t_data *data)
 {

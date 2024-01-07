@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/06 20:01:48 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:22:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
+
+/*
+The function assign_direction_hero assign the hero direction to the data
+structure.
+It check the character dir and assign the corresponding angle.
+*/
 
 static void	assign_direction_hero(t_data *data, char dir)
 {

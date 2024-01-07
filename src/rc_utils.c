@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:44:00 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/04 23:11:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/07 16:25:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,6 @@ void	img_draw_pixel(t_draw *data, int x, int y, unsigned int color)
 	*(unsigned int *)dst = color;
 }
 
-/*
-In this function we should add the function to free all the data
-in file free_data.c
-you can also add the function msg_error_exit to display the error message
-and free the data before exit the program
-*/
-
-	/*lx_destroy_window(rc->mlx, rc->win);*/
 int	end_program(t_data *rc)
 {
 	(void)rc;
@@ -71,8 +63,6 @@ int	key_release(int key, t_data *data)
 	return (0);
 }
 
-	/*mlx_put_image_to_window(data->mlx,
-		data->win, data->mini_map.img, 20, 20);*/
 void	put_imgs(t_data *data)
 {
 	mlx_clear_window(data->mlx, data->win);
