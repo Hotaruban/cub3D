@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/07 16:16:56 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:48:45 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,9 +235,6 @@ void	img_draw_line(
 void	img_draw_background(t_data *data);
 void	img_draw_wall(
 			t_draw *target, t_cor_int pos, t_cor_int end, t_image wall);
-
-/* rc_minimap.c */
-void	draw_minimap(t_data *data);
 
 /* rc_loop.c */
 int		data_loop(t_data *data);

@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/07 16:17:23 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/01/08 16:48:59 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,6 @@ SRC_FILES =	main.c \
 			utils_check_map.c \
 			rc_utils.c \
 			rc_utils2.c \
-			rc_minimap.c \
 			rc_move.c \
 			rc_draw.c \
 			rc_init.c \

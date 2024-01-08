@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:38:18 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/07 16:24:06 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:48:21 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,8 @@ static void	data_malloc(t_data *data)
 		msg_error(FAIL_WINDOW);
 		exit(EXIT_FAILURE);
 	}
-	init_draw(data->mlx, &data->mini_map, 100, 100);
-	if (!data->mini_map.img)
-	{
-		msg_error(FAIL_MINIMAP);
-		exit(EXIT_FAILURE);
-	}
 	init_draw(data->mlx, &data->rc, WIDTH, HEIGHT);
-	if (!data->mini_map.img)
+	if (!data->rc.img)
 	{
 		msg_error(FAIL_RAYCASTING);
 		exit(EXIT_FAILURE);
