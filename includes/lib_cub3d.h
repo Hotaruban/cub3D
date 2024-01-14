@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/08 16:48:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/14 22:22:26 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define TEXTURE_INVALID	"Texture data is not correct!"
 # define COLOR_INVALID		"Color data is not correct!"
 # define MAP_INVALID		"Map data is not correct!"
+# define MAP_NOT_FOUND		"Map data not found!"
 # define HERO_INVALID		"Hero position is not correct!"
 # define HERO_NOT_FOUND		"Hero position not found!"
 # define FAIL_WINDOW		"Fail to construct window."
