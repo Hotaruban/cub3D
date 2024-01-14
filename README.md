@@ -5,8 +5,8 @@
 </p>
 
 Team members:
-- <a href = "https://github.com/PoissonC">Yu</a> (intra: <a href = "">ychen2</a>)
-- <a href = "https://github.com/Hotaruban">Jeremy</a> (intra: <a href = "">jhurpy</a>)
+- <a href = "https://github.com/PoissonC">Yu</a> (intra: <a href = "https://profile.intra.42.fr/users/ychen2">ychen2</a>)
+- <a href = "https://github.com/Hotaruban">Jeremy</a> (intra: <a href = "https://profile.intra.42.fr/users/jhurpy">jhurpy</a>)
 
 Goals
 
