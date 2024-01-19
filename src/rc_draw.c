@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rc_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:51:49 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/07 16:23:42 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:56:45 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	img_draw_background(t_data *data)
 	}
 }
 
-static int	get_pixel_color(t_image *img, int x, int y)
+static int	get_pixel_color(t_draw *img, int x, int y)
 {
 	void	*dst;
 
@@ -59,7 +59,7 @@ static int	get_pixel_color(t_image *img, int x, int y)
 }
 
 void	img_draw_wall(
-	t_draw *target, t_cor_int pos, t_cor_int end, t_image wall)
+	t_draw *target, t_cor_int pos, t_cor_int end, t_draw wall)
 {
 	unsigned int	color;
 	int				d;
@@ -73,10 +73,10 @@ void	img_draw_wall(
 		end.y = HEIGHT - 1;
 	while (pos.y < end.y)
 	{
-		d = (pos.y - HEIGHT / 2 + line_h / 2) * wall.height;
+		d = (pos.y - HEIGHT / 2 + line_h / 2) * wall.tex_h;
 		tex_y = d / line_h;
-		if (tex_y >= wall.height)
-			tex_y = wall.height - 1;
+		if (tex_y >= wall.tex_h)
+			tex_y = wall.tex_h - 1;
 		if (tex_y < 0)
 			tex_y = 0;
 		color = get_pixel_color(&wall, end.x, tex_y);

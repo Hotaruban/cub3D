@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:25:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 12:09:47 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:52:59 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-static void	free_img(t_image *img)
+static void	free_img(t_draw *img)
 {
 	if (img->img)
 		free(img->img);

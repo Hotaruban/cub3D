@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
+#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/13 20:31:31 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/01/19 16:57:42 by ychen2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ SRC_FILES =	main.c \
 			utils_parser.c \
 			utils_check_map.c \
 			rc_utils.c \
-			rc_utils2.c \
 			rc_move.c \
 			rc_draw.c \
 			rc_init.c \

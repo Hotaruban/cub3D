@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:01:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 01:19:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:39:07 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(data));
-	if (parse_user_arguments(ac, av[1]) == false)
-		return (EXIT_FAILURE);
+	parse_user_arguments(ac, av[1]);
+	// if (parse_user_arguments(ac, av[1]) == false)
+		// exit(EXIT_FAILURE);
 	init_data(&data);
-	if (assign_data(&data, av[1]) == false)
-	{
-		free_data(&data);
-		return (EXIT_FAILURE);
-	}
+	assign_data(&data, av[1]);
+	// if (assign_data(&data, av[1]) == false)
+	// {
+	// 	free_data(&data);
+	// 	exit(EXIT_FAILURE);
+	// }
 	data_init(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);

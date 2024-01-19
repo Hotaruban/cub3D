@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   message_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:27:45 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/14 22:20:28 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:38:19 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,5 @@ void	msg_error(char *msg)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putendl_fd(msg, 2);
+	exit(EXIT_FAILURE);
 }
-
-//void	msg_error_exit(t_data *data, char *msg)
-//{
-//	msg_error(msg);
-//	end_program(data);
-//	exit(EXIT_FAILURE);
-//}
