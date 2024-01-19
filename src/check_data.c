@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 16:55:59 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:40:49 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ The function check_hero_pos checks if the hero position is valid.
 Check if it is in the map and not in a wall.
 */
 
-bool	check_hero_pos(t_data *data)
+void	check_hero_pos(t_data *data)
 {
 	if (HERO.x == 0 || HERO.y == 0 || HERO.x == -1 || HERO.y == -1)
-		return (false);
-	if (check_in_square(data->map, (int)HERO.y, (int)HERO.x) == false)
-		return (false);
-	return (true);
+		msg_error(HERO_INVALID);
+	check_in_square(data->map, (int)HERO.y, (int)HERO.x);
 }
 
 /*
@@ -68,31 +66,18 @@ The function check_valid_textures checks if the textures are valid.
 Check if the file extension is .xpm and if the file is accessible.
 */
 
-bool	check_valid_textures(t_data *data)
+void	check_valid_textures(t_data *data)
 {
 	if (check_extension(NORTH.addr, ".xpm") == false
 		|| check_access_file(NORTH.addr) == false)
-	{
 		msg_error("North texture is not valid");
-		return (false);
-	}
 	if (check_extension(SOUTH.addr, ".xpm") == false
 		|| check_access_file(SOUTH.addr) == false)
-	{
 		msg_error("South texture is not valid");
-		return (false);
-	}
 	if (check_extension(WEST.addr, ".xpm") == false
 		|| check_access_file(WEST.addr) == false)
-	{
 		msg_error("West texture is not valid");
-		return (false);
-	}
 	if (check_extension(EAST.addr, ".xpm") == false
 		|| check_access_file(EAST.addr) == false)
-	{
 		msg_error("East texture is not valid");
-		return (false);
-	}
-	return (true);
 }
