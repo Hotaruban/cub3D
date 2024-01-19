@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 23:24:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 17:32:21 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:35:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ The function check_map_correct checks if the map is valid.
 Check if the map is closed and if there is no character other than '1', '2'
 */
 
-static bool	check_map_correct(t_data *data, char **map)
+static void	check_map_correct(t_data *data, char **map)
 {
 	int		i;
 	int		j;
@@ -94,7 +94,7 @@ static bool	check_map_correct(t_data *data, char **map)
 	i = 0;
 	map_copy = copy_map(data->map_height, map);
 	if (!map_copy)
-		return (msg_error(MEM_ALLOC_FAILED), false);
+		msg_error(MEM_ALLOC_FAILED);
 	flood_fill(map_copy, 1, find_location(map_copy, '0'));
 	while (i < data->map_height)
 	{
@@ -105,13 +105,13 @@ static bool	check_map_correct(t_data *data, char **map)
 				&& map_copy[i][j] != ' ')
 			{
 				free_tab(map_copy);
-				return (msg_error(MAP_INVALID), false);
+				msg_error(MAP_INVALID);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (free_tab(map_copy), true);
+	free_tab(map_copy);
 }
 
 /*
@@ -120,7 +120,7 @@ Check if the map is closed and if there is no character other than '1', '2'
 Check if the the floor is closed by walls.
 */
 
-bool	check_valid_map(t_data *data)
+void	check_valid_map(t_data *data)
 {
 	int	x;
 	int	y;
@@ -134,16 +134,12 @@ bool	check_valid_map(t_data *data)
 		{
 			if (data->map[y][x] == '0')
 			{
-				if (check_in_square(data->map, y, x) == false)
-					return (msg_error(MAP_INVALID), false);
+				check_in_square(data->map, y, x);
+				break ;
 			}
 			x++;
 		}
 		y++;
 	}
-	if (check_map_correct(data, data->map) == false)
-	{
-		return (false);
-	}
-	return (true);
+	check_map_correct(data, data->map);
 }

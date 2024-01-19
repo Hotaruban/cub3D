@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_cub3d.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 16:59:08 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:40:53 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,12 +168,12 @@ enum
 /* ************************************************************************** */
 
 void	init_data(t_data *data);
-bool	assign_data(t_data *data, char *path_map);
-bool	assign_textures(t_data *data, char **tab);
+void	assign_data(t_data *data, char *path_map);
+void	assign_textures(t_data *data, char **tab);
 bool	assign_map(int fd, t_list **list);
-bool	check_valid_textures(t_data *data);
+void	check_valid_textures(t_data *data);
 bool	open_file_img(t_data *data);
-bool	check_valid_map(t_data *data);
+void	check_valid_map(t_data *data);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -186,8 +186,8 @@ bool	check_extension(char *path, char *ext);
 bool	check_access_file(char *path);
 bool	check_valid_digit(char *str);
 bool	find_hero_line(t_data *data, int y);
-bool	check_hero_pos(t_data *data);
-bool	check_in_square(char **map, int x, int y);
+void	check_hero_pos(t_data *data);
+void	check_in_square(char **map, int x, int y);
 void	pass_list_to_tab(t_data *data, t_list *list);
 void	assign_variable(char **var, char *str);
 void	free_data(t_data *data);

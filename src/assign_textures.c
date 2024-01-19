@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:43:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/30 17:45:22 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:27:32 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ First it checks if the number of variables is valid.
 Then it checks if the variables are printable.
 */
 
-static bool	check_valid_variables(char **tab)
+static void	check_valid_variables(char **tab)
 {
 	int	i_var;
 	int	i_char;
@@ -76,7 +76,7 @@ static bool	check_valid_variables(char **tab)
 	if (len_variables(tab) > 2)
 	{
 		if (ft_strncmp(tab[2], "\n", 2) != 0)
-			return (false);
+			msg_error(TEXTURE_INVALID);
 	}
 	while (tab[i_var])
 	{
@@ -86,22 +86,20 @@ static bool	check_valid_variables(char **tab)
 			if (tab[i_var][i_char] == '\n' && tab[i_var][i_char + 1] == '\0')
 				break ;
 			if (!ft_isprint(tab[i_var][i_char]))
-				return (false);
+				msg_error(TEXTURE_INVALID);
 			i_char++;
 		}
 		i_var++;
 	}
-	return (true);
 }
 
 /*
 The function assign_textures assign the textures to the data structure.
 */
 
-bool	assign_textures(t_data *data, char **tab)
+void	assign_textures(t_data *data, char **tab)
 {
-	if (check_valid_variables(tab) == false)
-		return (false);
+	check_valid_variables(tab);
 	if (ft_strncmp(tab[0], "NO", 3) == 0 && NORTH.addr == NULL)
 		assign_variable(&(NORTH.addr), tab[1]);
 	else if (ft_strncmp(tab[0], "SO", 3) == 0 && SOUTH.addr == NULL)
@@ -115,6 +113,5 @@ bool	assign_textures(t_data *data, char **tab)
 	else if (ft_strncmp(tab[0], "C", 2) == 0 && data->texture.ceiling == -1)
 		assign_color(&(data->texture.ceiling), tab[1]);
 	else if (ft_strncmp(tab[0], "\n", 2) != 0)
-		return (false);
-	return (true);
+		msg_error(TEXTURE_INVALID);
 }
