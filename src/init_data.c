@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:59:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/05 00:22:12 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:52:59 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	init_texture(t_texture *texture)
 {
-	ft_memset(&texture->north, 0, sizeof(t_image));
-	ft_memset(&texture->south, 0, sizeof(t_image));
-	ft_memset(&texture->west, 0, sizeof(t_image));
-	ft_memset(&texture->east, 0, sizeof(t_image));
+	ft_memset(&texture->north, 0, sizeof(t_draw));
+	ft_memset(&texture->south, 0, sizeof(t_draw));
+	ft_memset(&texture->west, 0, sizeof(t_draw));
+	ft_memset(&texture->east, 0, sizeof(t_draw));
 	texture->floor = -1;
 	texture->ceiling = -1;
 }

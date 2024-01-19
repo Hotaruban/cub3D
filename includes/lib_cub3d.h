@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_cub3d.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/14 22:22:26 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:59:08 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,17 @@ typedef enum e_dir
 	W
 }	t_dir;
 
+typedef struct s_draw
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		tex_h;
+	int		tex_w;
+}	t_draw;
+
 typedef struct s_cor_int
 {
 	int	x;
@@ -89,17 +100,6 @@ typedef struct s_cor_db
 	double	x;
 	double	y;
 }	t_cor_db;
-
-typedef struct s_image
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		width;
-	int		height;
-}	t_image;
 
 typedef struct s_rays
 {
@@ -113,7 +113,7 @@ typedef struct s_rays
 	double		perp_dist;
 	int			wall_h;
 	int			wall_hit_x;
-	t_image		wall;
+	t_draw		wall;
 }	t_rays;
 
 typedef struct s_keys
@@ -126,23 +126,12 @@ typedef struct s_keys
 	bool	l;
 }	t_keys;
 
-typedef struct s_draw
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		tex_h;
-	int		tex_w;
-}	t_draw;
-
 typedef struct s_texture
 {
-	t_image		north;
-	t_image		south;
-	t_image		west;
-	t_image		east;
+	t_draw		north;
+	t_draw		south;
+	t_draw		west;
+	t_draw		east;
 	int			floor;
 	int			ceiling;
 }	t_texture;
@@ -218,9 +207,6 @@ int		key_release(int key, t_data *data);
 void	img_draw_pixel(t_draw *data, int x, int y, unsigned int color);
 void	put_imgs(t_data *data);
 
-/* rc_utils.c */
-void	init_image(t_image *img);
-
 /* rc_init.c */
 void	data_init(t_data *data);
 void	init_draw(void *mlx, t_draw *tar, int width, int height);
@@ -235,7 +221,7 @@ void	img_draw_line(
 			t_draw *target, t_cor_int cur, t_cor_int end, unsigned int color);
 void	img_draw_background(t_data *data);
 void	img_draw_wall(
-			t_draw *target, t_cor_int pos, t_cor_int end, t_image wall);
+			t_draw *target, t_cor_int pos, t_cor_int end, t_draw wall);
 
 /* rc_loop.c */
 int		data_loop(t_data *data);

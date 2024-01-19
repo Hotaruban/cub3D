@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assign_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/14 22:22:12 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:30:37 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static bool	create_map(t_data *data, int fd)
 
 	line_list = NULL;
 	if (assign_map(fd, &line_list) == false)
-		return (false);
+		return (msg_error(MAP_INVALID), false);
 	pass_list_to_tab(data, line_list);
 	if (data->map_height == 0)
 		return (msg_error(MAP_NOT_FOUND), false);

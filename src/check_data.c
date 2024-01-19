@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/07 16:19:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:55:59 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib_cub3d.h"
+
+static void	get_addr(t_draw *img)
+{
+	free(img->addr);
+	img->addr = mlx_get_data_addr(img->img,
+			&img->bits_per_pixel, &img->line_length, &img->endian);
+}
 
 /*
 The function open_file_img opens the texture files and stores the images
@@ -20,25 +27,25 @@ in the corresponding variables.
 bool	open_file_img(t_data *data)
 {
 	NORTH.img = mlx_xpm_file_to_image(data->mlx, NORTH.addr,
-			&NORTH.width, &NORTH.height);
+			&NORTH.tex_w, &NORTH.tex_h);
 	if (NORTH.img == NULL)
 		return (false);
-	init_image(&NORTH);
+	get_addr(&NORTH);
 	SOUTH.img = mlx_xpm_file_to_image(data->mlx, SOUTH.addr,
-			&SOUTH.width, &SOUTH.height);
+			&SOUTH.tex_w, &SOUTH.tex_h);
 	if (SOUTH.img == NULL)
 		return (false);
-	init_image(&SOUTH);
+	get_addr(&SOUTH);
 	WEST.img = mlx_xpm_file_to_image(data->mlx, WEST.addr,
-			&WEST.width, &WEST.height);
+			&WEST.tex_w, &WEST.tex_h);
 	if (WEST.img == NULL)
 		return (false);
-	init_image(&WEST);
+	get_addr(&WEST);
 	EAST.img = mlx_xpm_file_to_image(data->mlx, EAST.addr,
-			&EAST.width, &EAST.height);
+			&EAST.tex_w, &EAST.tex_h);
 	if (EAST.img == NULL)
 		return (false);
-	init_image(&EAST);
+	get_addr(&EAST);
 	return (true);
 }
 

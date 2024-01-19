@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/07 16:22:40 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:14:54 by ychen2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,12 @@ bool	assign_map(int fd, t_list **list)
 			ft_lstadd_back(list, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
-	while (line != NULL && line_empty(line) == true)
+	while (line != NULL)
 	{
 		free(line);
 		line = get_next_line(fd);
+		if (line_empty(line) == false)
+			return (free(line), false);
 	}
 	if (line != NULL)
 		return (false);
