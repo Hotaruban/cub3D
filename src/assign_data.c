@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 18:41:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/23 19:33:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static void	create_textures(t_data *data, int fd)
 	while (textures_assigned(data) == false)
 	{
 		line = get_next_line(fd);
+		if (line == NULL)
+			msg_error(TEXTURE_INVALID);
 		tab = ft_split(line, ' ');
 		free(line);
 		assign_textures(data, tab);
