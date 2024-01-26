@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 04:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 18:40:49 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 00:39:32 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,30 @@ in the corresponding variables.
 
 bool	open_file_img(t_data *data)
 {
-	NORTH.img = mlx_xpm_file_to_image(data->mlx, NORTH.addr,
-			&NORTH.tex_w, &NORTH.tex_h);
-	if (NORTH.img == NULL)
+	data->texture.north.img = mlx_xpm_file_to_image(data->mlx,
+			data->texture.north.addr, &data->texture.north.tex_w,
+			&data->texture.north.tex_h);
+	if (data->texture.north.img == NULL)
 		return (false);
-	get_addr(&NORTH);
-	SOUTH.img = mlx_xpm_file_to_image(data->mlx, SOUTH.addr,
-			&SOUTH.tex_w, &SOUTH.tex_h);
-	if (SOUTH.img == NULL)
+	get_addr(&data->texture.north);
+	data->texture.south.img = mlx_xpm_file_to_image(data->mlx,
+			data->texture.south.addr, &data->texture.south.tex_w,
+			&data->texture.south.tex_h);
+	if (data->texture.south.img == NULL)
 		return (false);
-	get_addr(&SOUTH);
-	WEST.img = mlx_xpm_file_to_image(data->mlx, WEST.addr,
-			&WEST.tex_w, &WEST.tex_h);
-	if (WEST.img == NULL)
+	get_addr(&data->texture.south);
+	data->texture.west.img = mlx_xpm_file_to_image(data->mlx,
+			data->texture.west.addr, &data->texture.west.tex_w,
+			&data->texture.west.tex_h);
+	if (data->texture.west.img == NULL)
 		return (false);
-	get_addr(&WEST);
-	EAST.img = mlx_xpm_file_to_image(data->mlx, EAST.addr,
-			&EAST.tex_w, &EAST.tex_h);
-	if (EAST.img == NULL)
+	get_addr(&data->texture.west);
+	data->texture.east.img = mlx_xpm_file_to_image(data->mlx,
+			data->texture.east.addr, &data->texture.east.tex_w,
+			&data->texture.east.tex_h);
+	if (data->texture.east.img == NULL)
 		return (false);
-	get_addr(&EAST);
+	get_addr(&data->texture.east);
 	return (true);
 }
 
@@ -56,9 +60,10 @@ Check if it is in the map and not in a wall.
 
 void	check_hero_pos(t_data *data)
 {
-	if (HERO.x == 0 || HERO.y == 0 || HERO.x == -1 || HERO.y == -1)
+	if (data->hero.x == 0 || data->hero.y == 0
+		|| data->hero.x == -1 || data->hero.y == -1)
 		msg_error(HERO_INVALID);
-	check_in_square(data->map, (int)HERO.y, (int)HERO.x);
+	check_in_square(data->map, (int)data->hero.y, (int)data->hero.x);
 }
 
 /*
@@ -68,16 +73,16 @@ Check if the file extension is .xpm and if the file is accessible.
 
 void	check_valid_textures(t_data *data)
 {
-	if (check_extension(NORTH.addr, ".xpm") == false
-		|| check_access_file(NORTH.addr) == false)
+	if (check_extension(data->texture.north.addr, ".xpm") == false
+		|| check_access_file(data->texture.north.addr) == false)
 		msg_error("North texture is not valid");
-	if (check_extension(SOUTH.addr, ".xpm") == false
-		|| check_access_file(SOUTH.addr) == false)
+	if (check_extension(data->texture.south.addr, ".xpm") == false
+		|| check_access_file(data->texture.south.addr) == false)
 		msg_error("South texture is not valid");
-	if (check_extension(WEST.addr, ".xpm") == false
-		|| check_access_file(WEST.addr) == false)
+	if (check_extension(data->texture.west.addr, ".xpm") == false
+		|| check_access_file(data->texture.west.addr) == false)
 		msg_error("West texture is not valid");
-	if (check_extension(EAST.addr, ".xpm") == false
-		|| check_access_file(EAST.addr) == false)
+	if (check_extension(data->texture.east.addr, ".xpm") == false
+		|| check_access_file(data->texture.east.addr) == false)
 		msg_error("East texture is not valid");
 }

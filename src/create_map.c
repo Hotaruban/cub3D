@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:01:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 17:14:54 by ychen2           ###   ########.fr       */
+/*   Updated: 2024/01/27 00:33:15 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ bool	find_hero_line(t_data *data, int y)
 		if (data->map[y][x] == 'N' || data->map[y][x] == 'S'
 			|| data->map[y][x] == 'W' || data->map[y][x] == 'E')
 		{
-			HERO.x = (double)x;
-			HERO.y = (double)y;
+			data->hero.x = (double)x;
+			data->hero.y = (double)y;
 			assign_direction_hero(data, data->map[y][x]);
 			data->map[y][x] = '0';
 			hero_found = true;

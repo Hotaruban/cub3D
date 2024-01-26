@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:02:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/23 19:33:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 00:31:58 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ Function used in the function create_textures in file assign_data.c.
 
 static bool	textures_assigned(t_data *data)
 {
-	if (NORTH.addr != NULL && SOUTH.addr != NULL
-		&& WEST.addr != NULL && EAST.addr != NULL
+	if (data->texture.north.addr != NULL && data->texture.south.addr != NULL
+		&& data->texture.west.addr != NULL && data->texture.east.addr != NULL
 		&& data->texture.floor != -1 && data->texture.ceiling != -1)
 		return (true);
 	return (false);
