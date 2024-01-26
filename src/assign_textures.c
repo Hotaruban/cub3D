@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:43:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 18:27:32 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 00:37:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,23 @@ The function assign_textures assign the textures to the data structure.
 void	assign_textures(t_data *data, char **tab)
 {
 	check_valid_variables(tab);
-	if (ft_strncmp(tab[0], "NO", 3) == 0 && NORTH.addr == NULL)
-		assign_variable(&(NORTH.addr), tab[1]);
-	else if (ft_strncmp(tab[0], "SO", 3) == 0 && SOUTH.addr == NULL)
-		assign_variable(&(SOUTH.addr), tab[1]);
-	else if (ft_strncmp(tab[0], "WE", 3) == 0 && WEST.addr == NULL)
-		assign_variable(&(WEST.addr), tab[1]);
-	else if (ft_strncmp(tab[0], "EA", 3) == 0 && EAST.addr == NULL)
-		assign_variable(&(EAST.addr), tab[1]);
-	else if (ft_strncmp(tab[0], "F", 2) == 0 && data->texture.floor == -1)
+	if (ft_strncmp(tab[0], "NO", 3) == 0
+		&& data->texture.north.addr == NULL)
+		assign_variable(&(data->texture.north.addr), tab[1]);
+	else if (ft_strncmp(tab[0], "SO", 3) == 0
+		&& data->texture.south.addr == NULL)
+		assign_variable(&(data->texture.south.addr), tab[1]);
+	else if (ft_strncmp(tab[0], "WE", 3) == 0
+		&& data->texture.west.addr == NULL)
+		assign_variable(&(data->texture.west.addr), tab[1]);
+	else if (ft_strncmp(tab[0], "EA", 3) == 0
+		&& data->texture.east.addr == NULL)
+		assign_variable(&(data->texture.east.addr), tab[1]);
+	else if (ft_strncmp(tab[0], "F", 2) == 0
+		&& data->texture.floor == -1)
 		assign_color(&(data->texture.floor), tab[1]);
-	else if (ft_strncmp(tab[0], "C", 2) == 0 && data->texture.ceiling == -1)
+	else if (ft_strncmp(tab[0], "C", 2) == 0
+		&& data->texture.ceiling == -1)
 		assign_color(&(data->texture.ceiling), tab[1]);
 	else if (ft_strncmp(tab[0], "\n", 2) != 0)
 		msg_error(TEXTURE_INVALID);

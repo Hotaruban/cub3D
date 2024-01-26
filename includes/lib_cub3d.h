@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:48:06 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/01/19 18:40:53 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 00:41:49 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@
 /*                           MACRO DEFINITIONS                                */
 /*                                                                            */
 /* ************************************************************************** */
-
-# define EXIT_SUCCESS	0
-# define EXIT_FAILURE	1
-
-# define NORTH	data->texture.north
-# define SOUTH	data->texture.south
-# define WEST	data->texture.west
-# define EAST	data->texture.east
-# define HERO	data->hero
 
 # define MEM_ALLOC_FAILED	"Memory allocation failed!"
 # define FILE_FAILED		"Failed to open the file!"
