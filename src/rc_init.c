@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:38:18 by ychen2            #+#    #+#             */
-/*   Updated: 2024/01/08 16:48:21 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 18:40:41 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	data_malloc(t_data *data)
 {
-	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "data3D");
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "cub3D");
 	if (!data->win)
 	{
 		msg_error(FAIL_WINDOW);
