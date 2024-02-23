@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ychen2 <ychen2@student.42.fr>              +#+  +:+       +#+         #
+#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 03:25:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/19 16:57:42 by ychen2           ###   ########.fr        #
+#    Updated: 2024/02/23 14:12:08 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ BCYAN = \033[1;36m
 RESET = \033[0m
 
 # Compiler and flags
-CC = gcc
+CC = cc
 C_FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g -o3
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
